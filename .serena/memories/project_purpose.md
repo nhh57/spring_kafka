@@ -1,0 +1,3 @@
+# Project Purpose
+
+This project serves as an in-depth Kafka teaching plan, aiming to provide a comprehensive understanding of Kafka from foundational concepts to advanced applications. It focuses on both theoretical knowledge and practical implementation, covering aspects like Kafka fundamentals, architecture, APIs (Producer, Consumer, Streams, Connect), security, performance tuning, and real-world best practices. The goal is to help users not only understand 'how' but also 'why' and 'when' to use Kafka in various scenarios.

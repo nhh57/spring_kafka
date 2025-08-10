@@ -48,7 +48,7 @@ graph TD
     G --> H[Subscribe to Topic]
     H --> I[Poll Messages]
     I --> J[Process Messages]
-    J --> K[Commit Offset (Manual/Auto)]
+    J --> K[Commit Offset Manual/Auto]
     K --> L[Repeat Poll]
     E --> L
     J --> F
@@ -64,8 +64,8 @@ Chúng ta sẽ xem xét concurrency ở mức Consumer Group (nhiều Consumer i
 
 ### 3.7. Phụ thuộc
 
-*   **Java Development Kit (JDK)**: Phiên bản 11 trở lên.
-*   **Maven/Gradle**: Để quản lý project và dependencies.
+*   **Java Development Kit (JDK)**: Phiên bản 21.
+*   **Gradle**: Để quản lý project và dependencies.
 *   **`org.apache.kafka:kafka-clients`**: Phiên bản tương thích với Kafka Broker (ví dụ: 7.0.1).
 *   **Môi trường Kafka cục bộ**: Được thiết lập và chạy từ Module 1.
 
