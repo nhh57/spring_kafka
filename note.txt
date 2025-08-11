@@ -1,0 +1,5 @@
+ ./bin/kafka-topics.sh --describe --topic replicated-topic --bootstrap-server localhost:9092
+
+./gradlew :producer-service:run
+
+kiểm tra số lượng phiên bản trong nhóm người tiêu dùng : docker exec kafka1 kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group learning-group

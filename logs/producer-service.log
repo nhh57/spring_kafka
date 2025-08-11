@@ -1,8 +1,8 @@
-11/08/2025 15:40:08.991 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+11/08/2025 21:46:36.025 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
 	acks = -1
 	auto.include.jmx.reporter = true
 	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
+	bootstrap.servers = [localhost:9092, localhost:9093]
 	buffer.memory = 33554432
 	client.dns.lookup = use_all_dns_ips
 	client.id = producer-1
@@ -88,21 +88,34 @@
 	transactional.id = null
 	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
 
-11/08/2025 15:40:09.138 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
-11/08/2025 15:40:09.306 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 15:40:09.308 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 15:40:09.308 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754901609304
-11/08/2025 15:40:09.310 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 15:40:09.313 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 15:40:09.314 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
-11/08/2025 15:40:09.775 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 15:40:09.797 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 0 with epoch 0
-11/08/2025 15:47:01.921 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 15:47:02.935 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+11/08/2025 21:46:36.450 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 21:46:36.551 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 21:46:36.555 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 21:46:36.555 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754923596541
+11/08/2025 21:46:36.560 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 21:46:36.565 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 21:46:36.565 [main] INFO  c.example.kafka.producer.ProducerApp - Sending sample messages to topic 'replicated-topic'.
+11/08/2025 21:46:37.322 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: kCgXYFPhRWa8ev1Q79Pc1g
+11/08/2025 21:46:37.325 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1 with epoch 0
+11/08/2025 21:46:37.399 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=0, value='Hello Kafka Message 0' to topic=replicated-topic, partition=0, offset=5
+11/08/2025 21:46:37.463 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='Hello Kafka Message 1' to topic=replicated-topic, partition=0, offset=6
+11/08/2025 21:46:37.552 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='Hello Kafka Message 2' to topic=replicated-topic, partition=0, offset=7
+11/08/2025 21:46:37.660 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='Hello Kafka Message 3' to topic=replicated-topic, partition=0, offset=8
+11/08/2025 21:46:37.776 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='Hello Kafka Message 4' to topic=replicated-topic, partition=0, offset=9
+11/08/2025 21:46:37.853 [main] INFO  c.example.kafka.producer.ProducerApp - Finished sending sample messages.
+11/08/2025 21:46:37.855 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 21:46:37.857 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 21:46:37.925 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+11/08/2025 21:46:37.926 [main] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+11/08/2025 21:46:37.928 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+11/08/2025 21:46:37.930 [main] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+11/08/2025 21:46:37.934 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService closed.
+11/08/2025 21:46:37.935 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 21:47:47.153 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
 	acks = -1
 	auto.include.jmx.reporter = true
 	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
+	bootstrap.servers = [localhost:9092, localhost:9093]
 	buffer.memory = 33554432
 	client.dns.lookup = use_all_dns_ips
 	client.id = producer-1
@@ -188,22 +201,34 @@
 	transactional.id = null
 	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
 
-11/08/2025 15:47:03.123 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
-11/08/2025 15:47:03.272 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 15:47:03.273 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 15:47:03.273 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902023269
-11/08/2025 15:47:03.275 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 15:47:03.277 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 15:47:03.277 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
-11/08/2025 15:47:03.721 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 15:47:03.722 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1 with epoch 0
-11/08/2025 15:47:34.323 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 15:47:34.325 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 15:47:35.224 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+11/08/2025 21:47:47.466 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 21:47:47.583 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 21:47:47.585 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 21:47:47.586 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754923667572
+11/08/2025 21:47:47.590 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 21:47:47.595 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 21:47:47.595 [main] INFO  c.example.kafka.producer.ProducerApp - Sending sample messages to topic 'replicated-topic'.
+11/08/2025 21:47:48.305 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: kCgXYFPhRWa8ev1Q79Pc1g
+11/08/2025 21:47:48.323 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1000 with epoch 0
+11/08/2025 21:47:48.379 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=0, value='Hello Kafka Message 0' to topic=replicated-topic, partition=0, offset=10
+11/08/2025 21:47:48.437 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='Hello Kafka Message 1' to topic=replicated-topic, partition=0, offset=11
+11/08/2025 21:47:48.541 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='Hello Kafka Message 2' to topic=replicated-topic, partition=0, offset=12
+11/08/2025 21:47:48.638 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='Hello Kafka Message 3' to topic=replicated-topic, partition=0, offset=13
+11/08/2025 21:47:48.752 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='Hello Kafka Message 4' to topic=replicated-topic, partition=0, offset=14
+11/08/2025 21:47:48.835 [main] INFO  c.example.kafka.producer.ProducerApp - Finished sending sample messages.
+11/08/2025 21:47:48.839 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 21:47:48.842 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 21:47:48.906 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+11/08/2025 21:47:48.907 [main] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+11/08/2025 21:47:48.909 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+11/08/2025 21:47:48.911 [main] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+11/08/2025 21:47:48.912 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService closed.
+11/08/2025 21:47:48.913 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 21:47:53.938 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
 	acks = -1
 	auto.include.jmx.reporter = true
 	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
+	bootstrap.servers = [localhost:9092, localhost:9093]
 	buffer.memory = 33554432
 	client.dns.lookup = use_all_dns_ips
 	client.id = producer-1
@@ -289,22 +314,34 @@
 	transactional.id = null
 	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
 
-11/08/2025 15:47:35.380 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
-11/08/2025 15:47:35.505 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 15:47:35.506 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 15:47:35.506 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902055504
-11/08/2025 15:47:35.508 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 15:47:35.510 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 15:47:35.511 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
-11/08/2025 15:47:35.757 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 15:47:35.758 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 2 with epoch 0
-11/08/2025 15:47:46.691 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 15:47:46.693 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 15:47:47.525 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+11/08/2025 21:47:54.286 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 21:47:54.383 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 21:47:54.386 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 21:47:54.386 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754923674374
+11/08/2025 21:47:54.390 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 21:47:54.394 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 21:47:54.395 [main] INFO  c.example.kafka.producer.ProducerApp - Sending sample messages to topic 'replicated-topic'.
+11/08/2025 21:47:54.975 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: kCgXYFPhRWa8ev1Q79Pc1g
+11/08/2025 21:47:54.979 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1001 with epoch 0
+11/08/2025 21:47:55.068 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=0, value='Hello Kafka Message 0' to topic=replicated-topic, partition=0, offset=15
+11/08/2025 21:47:55.120 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='Hello Kafka Message 1' to topic=replicated-topic, partition=0, offset=16
+11/08/2025 21:47:55.223 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='Hello Kafka Message 2' to topic=replicated-topic, partition=0, offset=17
+11/08/2025 21:47:55.322 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='Hello Kafka Message 3' to topic=replicated-topic, partition=0, offset=18
+11/08/2025 21:47:55.422 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='Hello Kafka Message 4' to topic=replicated-topic, partition=0, offset=19
+11/08/2025 21:47:55.517 [main] INFO  c.example.kafka.producer.ProducerApp - Finished sending sample messages.
+11/08/2025 21:47:55.518 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 21:47:55.520 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 21:47:55.537 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+11/08/2025 21:47:55.538 [main] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+11/08/2025 21:47:55.538 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+11/08/2025 21:47:55.539 [main] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+11/08/2025 21:47:55.540 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService closed.
+11/08/2025 21:47:55.540 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 21:48:08.135 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
 	acks = -1
 	auto.include.jmx.reporter = true
 	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
+	bootstrap.servers = [localhost:9092, localhost:9093]
 	buffer.memory = 33554432
 	client.dns.lookup = use_all_dns_ips
 	client.id = producer-1
@@ -390,661 +427,26 @@
 	transactional.id = null
 	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
 
-11/08/2025 15:47:47.662 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
-11/08/2025 15:47:47.788 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 15:47:47.789 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 15:47:47.789 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902067786
-11/08/2025 15:47:47.790 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 15:47:47.792 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 15:47:47.792 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
-11/08/2025 15:47:48.016 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 15:47:48.018 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 3 with epoch 0
-11/08/2025 15:47:50.996 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 15:47:50.999 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 15:47:51.842 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
-	acks = -1
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = true
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-11/08/2025 15:47:51.980 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
-11/08/2025 15:47:52.117 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 15:47:52.121 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 15:47:52.121 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902072115
-11/08/2025 15:47:52.123 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 15:47:52.126 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 15:47:52.126 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
-11/08/2025 15:47:52.376 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 15:47:52.378 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 4 with epoch 0
-11/08/2025 15:49:19.283 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic, partition=0, offset=0
-11/08/2025 15:49:27.296 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=hainh, value='hainh' to topic=learning-topic, partition=0, offset=1
-11/08/2025 15:49:44.450 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=heheheh, value='heheheh' to topic=learning-topic, partition=0, offset=2
-11/08/2025 15:56:52.443 [kafka-producer-network-thread | producer-1] INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
-11/08/2025 16:05:47.198 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 16:05:49.363 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
-org.apache.kafka.common.config.ConfigException: Invalid value 1 for configuration acks: Expected value to be a string, but it was a java.lang.Integer
-	at org.apache.kafka.common.config.ConfigDef.parseType(ConfigDef.java:684)
-	at org.apache.kafka.common.config.ConfigDef.parseValue(ConfigDef.java:493)
-	at org.apache.kafka.common.config.ConfigDef.parse(ConfigDef.java:486)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:112)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
-	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
-	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
-	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
-11/08/2025 16:05:49.365 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
-11/08/2025 16:06:05.320 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
-org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
-	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
-	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
-	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
-11/08/2025 16:06:05.322 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
-11/08/2025 16:06:40.407 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
-org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
-	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
-	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
-	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
-11/08/2025 16:06:40.409 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
-11/08/2025 16:08:06.437 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
-org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
-	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
-	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
-	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
-	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
-	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
-11/08/2025 16:08:06.439 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
-11/08/2025 16:10:38.116 [main] INFO  o.a.k.c.producer.ProducerConfig - Idempotence will be disabled because acks is set to 1, not set to 'all'.
-11/08/2025 16:10:38.119 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
-	acks = 1
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = false
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-11/08/2025 16:10:38.463 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 16:10:38.463 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 16:10:38.463 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754903438461
-11/08/2025 16:10:38.465 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 16:10:38.468 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 16:10:38.468 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic-1'. Type 'exit' to quit.
-11/08/2025 16:10:38.707 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 16:10:58.847 [kafka-producer-network-thread | producer-1] WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 3 : {learning-topic-1=LEADER_NOT_AVAILABLE}
-11/08/2025 16:10:58.974 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=0
-11/08/2025 16:11:16.986 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-1, partition=0, offset=1
-11/08/2025 16:11:19.007 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-1, partition=0, offset=2
-11/08/2025 16:11:21.026 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='4' to topic=learning-topic-1, partition=0, offset=3
-11/08/2025 16:11:43.260 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=, value='' to topic=learning-topic-1, partition=0, offset=4
-11/08/2025 16:11:44.261 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=5
-11/08/2025 16:11:44.261 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=6
-11/08/2025 16:11:45.263 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=7
-11/08/2025 16:11:45.264 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=8
-11/08/2025 16:11:45.265 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=9
-11/08/2025 16:11:45.265 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=10
-11/08/2025 16:12:16.569 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=11
-11/08/2025 16:12:18.597 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=12
-11/08/2025 16:12:24.673 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-1, partition=0, offset=13
-11/08/2025 16:12:27.710 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-1, partition=0, offset=14
-11/08/2025 16:12:29.738 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-1, partition=0, offset=15
-11/08/2025 16:12:32.754 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='4' to topic=learning-topic-1, partition=0, offset=16
-11/08/2025 16:13:50.609 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 16:13:50.610 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 16:13:51.731 [main] INFO  o.a.k.c.producer.ProducerConfig - Idempotence will be disabled because acks is set to 1, not set to 'all'.
-11/08/2025 16:13:51.734 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
-	acks = 1
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = false
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-11/08/2025 16:13:51.992 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 16:13:51.992 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 16:13:51.992 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754903631991
-11/08/2025 16:13:51.995 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 16:13:51.998 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 16:13:51.998 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic-0'. Type 'exit' to quit.
-11/08/2025 16:13:52.263 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 16:14:04.323 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=0
-11/08/2025 16:14:06.306 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=1
-11/08/2025 16:14:06.306 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=2
-11/08/2025 16:14:06.306 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=3
-11/08/2025 16:14:07.318 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=4
-11/08/2025 16:14:07.319 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=5
-11/08/2025 16:14:07.320 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=6
-11/08/2025 16:14:07.320 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=7
-11/08/2025 16:14:08.328 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=8
-11/08/2025 16:14:08.328 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=9
-11/08/2025 16:14:08.329 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=10
-11/08/2025 16:14:09.341 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='3' to topic=learning-topic-0, partition=0, offset=11
-11/08/2025 16:15:01.563 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 16:15:01.564 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 16:15:02.892 [main] INFO  o.a.k.c.producer.ProducerConfig - Idempotence will be disabled because acks is set to 0, not set to 'all'.
-11/08/2025 16:15:02.896 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
-	acks = 0
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = false
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-11/08/2025 16:15:03.159 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 16:15:03.160 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 16:15:03.160 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754903703158
-11/08/2025 16:15:03.162 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 16:15:03.165 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 16:15:03.165 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic-0'. Type 'exit' to quit.
-11/08/2025 16:15:03.419 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 16:15:12.461 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:12.461 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:13.438 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:13.445 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:13.446 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:14.451 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:16.476 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:22.540 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='2' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:55.855 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:55.855 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:55.855 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:55.856 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:56.875 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:56.875 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:56.876 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:56.876 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:57.883 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:57.884 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:58.892 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:58.892 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:58.893 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:58.893 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:59.897 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:59.898 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:59.899 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:15:59.899 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:23:41.567 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 16:23:41.568 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=6, value='6' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:23:41.569 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-11/08/2025 16:25:55.514 [main] INFO  o.a.k.c.producer.ProducerConfig - Idempotence will be disabled because acks is set to 0, not set to 'all'.
-11/08/2025 16:25:55.517 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
-	acks = 0
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = false
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-11/08/2025 16:25:55.813 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
-11/08/2025 16:25:55.813 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
-11/08/2025 16:25:55.813 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754904355811
-11/08/2025 16:25:55.816 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
-11/08/2025 16:25:55.818 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
-11/08/2025 16:25:55.818 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic-0'. Type 'exit' to quit.
-11/08/2025 16:25:56.078 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
-11/08/2025 16:26:12.222 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:13.202 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:14.216 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:14.216 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:14.216 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:14.217 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:15.230 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:15.230 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:15.231 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:15.231 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:15.232 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:16.239 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:16.239 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=, value='' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:16.240 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:16.240 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:16.240 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:18.261 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=11, value='11' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:27.373 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=, value='' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:28.374 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:28.375 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:29.389 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:30.398 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:33.427 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:34.443 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:35.455 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:36.464 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:36.464 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:37.476 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:37.476 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:37.477 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:38.486 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:38.486 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:26:39.498 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic-0, partition=0, offset=-1
-11/08/2025 16:27:26.855 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
-11/08/2025 16:27:26.856 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 21:48:08.525 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 21:48:08.639 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 21:48:08.641 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 21:48:08.642 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754923688628
+11/08/2025 21:48:08.646 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 21:48:08.651 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 21:48:08.651 [main] INFO  c.example.kafka.producer.ProducerApp - Sending sample messages to topic 'replicated-topic'.
+11/08/2025 21:48:09.267 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: kCgXYFPhRWa8ev1Q79Pc1g
+11/08/2025 21:48:09.276 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1002 with epoch 0
+11/08/2025 21:48:09.365 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=0, value='Hello Kafka Message 0' to topic=replicated-topic, partition=0, offset=20
+11/08/2025 21:48:09.401 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='Hello Kafka Message 1' to topic=replicated-topic, partition=0, offset=21
+11/08/2025 21:48:09.506 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=2, value='Hello Kafka Message 2' to topic=replicated-topic, partition=0, offset=22
+11/08/2025 21:48:09.603 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=3, value='Hello Kafka Message 3' to topic=replicated-topic, partition=0, offset=23
+11/08/2025 21:48:09.704 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=4, value='Hello Kafka Message 4' to topic=replicated-topic, partition=0, offset=24
+11/08/2025 21:48:09.798 [main] INFO  c.example.kafka.producer.ProducerApp - Finished sending sample messages.
+11/08/2025 21:48:09.799 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 21:48:09.801 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 21:48:09.823 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+11/08/2025 21:48:09.823 [main] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+11/08/2025 21:48:09.824 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+11/08/2025 21:48:09.825 [main] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+11/08/2025 21:48:09.826 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService closed.
+11/08/2025 21:48:09.826 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.

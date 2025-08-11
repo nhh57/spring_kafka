@@ -8,6 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/consumer-service" />
+            <option value="$PROJECT_DIR$/producer-service" />
           </set>
         </option>
       </GradleProjectSettings>
