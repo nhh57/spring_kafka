@@ -20,61 +20,41 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 *   **Ví dụ code/Hướng dẫn**:
     *   File `docker-compose.yml` để khởi động Zookeeper và Kafka Broker.
     *   Hướng dẫn chạy các lệnh Kafka CLI cơ bản (`kafka-topics.sh`, `kafka-console-producer.sh`, `kafka-console-consumer.sh`).
-*   **Bài tập thực hành**:
-    *   Tạo một topic mới với 3 phân vùng và 1 replication factor.
-    *   Gửi 5 tin nhắn từ console producer.
-    *   Tiêu thụ 5 tin nhắn đó từ console consumer.
 
 ### 1.2 Hiểu các khái niệm cốt lõi qua CLI
 *   **Mục tiêu**: Trực quan hóa Messages, Topics, Partitions, Brokers qua các lệnh CLI.
 *   **Ví dụ code/Hướng dẫn**:
     *   Sử dụng `kafka-topics.sh --describe` để xem thông tin phân vùng và leader/follower.
     *   Gửi tin nhắn với key để thấy chúng được gửi đến cùng một phân vùng.
-*   **Bài tập thực hành**:
-    *   Tạo một topic mới, gửi tin nhắn với key và quan sát chúng được gửi đến cùng một phân vùng.
-    *   Thử tắt một broker và quan sát thay đổi leader (nếu có cụm multi-broker).
 
 ## Module 2: Kafka Architecture & Components Deep Dive - Thực hành
 
 **Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-2-kafka-architecture--components-deep-dive-đi-sâu-vào-kiến-trúc--thành-phần-kafka)
 
-### 2.1 Viết Kafka Producer cơ bản bằng Java
-*   **Mục tiêu**: Hiểu cách gửi tin nhắn đến Kafka bằng Kafka Producer API của Java.
-*   **Môi trường thiết lập**: Dự án Maven/Gradle với `kafka-clients` dependency.
+### 2.1 Xây dựng `producer-service`
+*   **Mục tiêu**: Xây dựng một microservice độc lập có khả năng gửi tin nhắn đến Kafka, sử dụng Kafka Producer API của Java.
+*   **Môi trường thiết lập**: Module `producer-service` trong dự án Gradle.
 *   **Ví dụ code**:
-    *   Tạo `KafkaProducer` với các cấu hình cơ bản (`bootstrap.servers`, `key.serializer`, `value.serializer`).
-    *   Gửi `ProducerRecord` đồng bộ và bất đồng bộ.
-*   **Bài tập thực hành**:
-    *   Viết một ứng dụng Producer gửi 100 tin nhắn đến một topic.
-    *   Đo thời gian gửi tin nhắn và thông lượng.
+    *   `MessageProducerService.java`: Đóng gói logic tạo và cấu hình `KafkaProducer`.
+    *   `ProducerApp.java`: Ứng dụng chính, cho phép người dùng nhập và gửi tin nhắn từ console.
 
 ### 2.2 Cấu hình Producer và đảm bảo phân phối (Acks, Retries, Idempotence)
 *   **Mục tiêu**: Trải nghiệm ảnh hưởng của các cấu hình Producer đến độ bền và hiệu suất.
 *   **Ví dụ code**:
-    *   Thử nghiệm `acks=0`, `acks=1`, `acks=all`.
-    *   Bật `enable.idempotence=true` và `retries` để thấy `exactly-once delivery` (trong phạm vi session của Producer).
-*   **Bài tập thực hành**:
-    *   Chạy Producer với các cấu hình `acks` khác nhau và quan sát độ trễ/thông lượng.
-    *   Mô phỏng lỗi broker (ví dụ: tắt broker) và quan sát hành vi với/không có `idempotence` và `retries`.
+    *   Xem lại các cấu hình `acks`, `retries`, `enable.idempotence` trong `MessageProducerService.java`.
 
-### 2.3 Viết Kafka Consumer cơ bản bằng Java
-*   **Mục tiêu**: Hiểu cách tiêu thụ tin nhắn từ Kafka bằng Kafka Consumer API của Java.
-*   **Môi trường thiết lập**: Dự án Maven/Gradle với `kafka-clients` dependency.
+### 2.3 Xây dựng `consumer-service`
+*   **Mục tiêu**: Xây dựng một microservice độc lập có khả năng tiêu thụ tin nhắn từ Kafka, sử dụng Kafka Consumer API của Java.
+*   **Môi trường thiết lập**: Module `consumer-service` trong dự án Gradle.
 *   **Ví dụ code**:
-    *   Tạo `KafkaConsumer` với các cấu hình cơ bản (`bootstrap.servers`, `group.id`, `key.deserializer`, `value.deserializer`).
-    *   `subscribe` vào một topic và `poll` tin nhắn.
-*   **Bài tập thực hành**:
-    *   Viết một ứng dụng Consumer tiêu thụ tin nhắn từ topic đã tạo.
-    *   Quan sát cách các consumer trong cùng một group chia sẻ phân vùng.
+    *   `MessageConsumerService.java`: Đóng gói logic tạo `KafkaConsumer`, chạy trong một thread riêng và xử lý tin nhắn.
+    *   `ConsumerApp.java`: Ứng dụng chính để khởi chạy consumer service.
 
 ### 2.4 Quản lý Consumer Group và Offset thủ công
 *   **Mục tiêu**: Kiểm soát việc commit offset và hiểu cơ chế rebalance.
 *   **Ví dụ code**:
     *   Cấu hình `enable.auto.commit=false`.
     *   Sử dụng `consumer.commitSync()` và `consumer.commitAsync()`.
-*   **Bài tập thực hành**:
-    *   Viết một consumer commit offset thủ công sau khi xử lý một batch tin nhắn.
-    *   Mô phỏng consumer crash và quan sát hành vi phục hồi từ offset đã commit.
 
 ## Module 3: Kafka APIs Deep Dive - Thực hành
 
@@ -87,9 +67,6 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   Tạo `StreamsBuilder` và `KStream` từ một topic.
     *   Thực hiện các phép biến đổi như `filter`, `map`, `groupByKey`, `count`.
     *   Ghi kết quả ra một topic mới.
-*   **Bài tập thực hành**:
-    *   Viết ứng dụng Kafka Streams đọc từ topic đầu vào, lọc các tin nhắn theo điều kiện, chuyển đổi định dạng và ghi ra topic đầu ra.
-    *   Thử nghiệm với `windowing` và `aggregation`.
 
 ### 3.2 Thực hành Kafka Connect
 *   **Mục tiêu**: Sử dụng các Kafka Connectors có sẵn để di chuyển dữ liệu.
@@ -98,9 +75,6 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   Cấu hình và chạy `FileStreamSourceConnector` để đọc từ file và ghi vào Kafka.
     *   Cấu hình và chạy `FileStreamSinkConnector` để đọc từ Kafka và ghi vào file.
     *   Giới thiệu về SMTs (Single Message Transforms).
-*   **Bài tập thực hành**:
-    *   Tạo một Source Connector đọc dữ liệu từ một file CSV và publish vào Kafka.
-    *   Tạo một Sink Connector đọc dữ liệu từ Kafka và ghi vào một file khác, sử dụng SMT để biến đổi dữ liệu.
 
 ## Module 4: Advanced Kafka Concepts & Operations - Thực hành
 
@@ -113,9 +87,6 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   Định nghĩa Avro Schema (`.avsc` file).
     *   Tạo Avro Producer và Consumer.
     *   Cấu hình Producer/Consumer để tích hợp với Schema Registry.
-*   **Bài tập thực hành**:
-    *   Gửi và nhận các bản ghi Avro với Schema Registry.
-    *   Thử nghiệm Schema Evolution (thêm trường tùy chọn) và quan sát khả năng tương thích ngược.
 
 ### 4.2 Thực hành bảo mật Kafka (SSL/TLS, SASL)
 *   **Mục tiêu**: Cấu hình Producer/Consumer để kết nối với cụm Kafka bảo mật.
@@ -123,8 +94,6 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 *   **Ví dụ code**:
     *   Cấu hình Producer/Consumer với các thuộc tính SSL/TLS (truststore, keystore).
     *   Cấu hình Producer/Consumer với các thuộc tính SASL (username, password, mechanism).
-*   **Bài tập thực hành**:
-    *   Kết nối thành công Producer/Consumer đến một cụm Kafka có bảo mật.
 
 ## Module 5: Spring for Apache Kafka - Thực hành
 
@@ -143,26 +112,18 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   Inject `KafkaTemplate`.
     *   Sử dụng `kafkaTemplate.send()` để gửi tin nhắn.
     *   Xử lý kết quả gửi (lắng nghe `ListenableFuture`).
-*   **Bài tập thực hành**:
-    *   Tạo một REST Controller nhận request và gửi tin nhắn vào Kafka thông qua `KafkaTemplate`.
 
 ### 5.3 Sử dụng @KafkaListener để tiêu thụ tin nhắn
 *   **Mục tiêu**: Tiêu thụ tin nhắn bằng annotation `@KafkaListener`.
 *   **Ví dụ code**:
     *   Tạo một class với phương thức được chú thích `@KafkaListener`.
     *   Cấu hình `group.id` và `topics`.
-*   **Bài tập thực hành**:
-    *   Tạo một `@KafkaListener` đơn giản để nhận tin nhắn và in ra console.
-    *   Thử nghiệm với `concurrency` của `@KafkaListener`.
 
 ### 5.4 Xử lý lỗi trong Spring Kafka
 *   **Mục tiêu**: Triển khai các chiến lược xử lý lỗi mạnh mẽ.
 *   **Ví dụ code**:
     *   Cấu hình `DefaultErrorHandler` với `DeadLetterPublishingRecoverer` và `FixedBackOff`/`ExponentialBackOff`.
     *   Mô phỏng lỗi trong consumer và quan sát tin nhắn được gửi đến DLT.
-*   **Bài tập thực hành**:
-    *   Tạo một consumer gây lỗi và cấu hình DLT để bắt các tin nhắn lỗi.
-    *   Kiểm tra nội dung tin nhắn trong DLT.
 
 ## Module 6: Real-world Applications & Best Practices - Thực hành
 
@@ -174,8 +135,6 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   Định nghĩa các `Event` (ví dụ: `OrderCreatedEvent`, `OrderUpdatedEvent`).
     *   Tạo một `Aggregate` nhận `Command` và publish `Event` vào Kafka.
     *   Xây dựng một `Projection` (Materialized View) từ các event để tạo ra trạng thái hiện tại.
-*   **Bài tập thực hành**:
-    *   Triển khai một hệ thống quản lý đơn hàng đơn giản sử dụng Event Sourcing.
 
 ### 6.2 Kiểm thử ứng dụng Kafka
 *   **Mục tiêu**: Viết unit và integration test cho Producer/Consumer.
@@ -183,5 +142,3 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 *   **Ví dụ code**:
     *   Unit test cho Producer/Consumer logic.
     *   Integration test sử dụng `EmbeddedKafkaBroker` để kiểm tra luồng dữ liệu end-to-end trong môi trường test.
-*   **Bài tập thực hành**:
-    *   Viết test cho các ví dụ code đã tạo ở các module trước.

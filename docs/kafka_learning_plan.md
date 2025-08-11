@@ -69,6 +69,7 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 - **Mục đích:** Học cách các ứng dụng gửi dữ liệu đến các topic Kafka.
 - **Vấn đề giải quyết:** Thu nạp dữ liệu một cách đáng tin cậy và hiệu quả vào Kafka.
 - **Khi nào nên sử dụng:** Bất kỳ ứng dụng nào tạo dữ liệu để được xử lý bởi các hệ thống khác hoặc lưu trữ trong Kafka.
+- **Ghi chú thực hành:** Trong dự án này, chúng ta sẽ triển khai một `producer-service` độc lập để mô phỏng một microservice chuyên gửi dữ liệu.
 
 ### 2.4 Producer Configuration & Guarantees (Acks, Retries, Idempotence, Transactions) (Cấu hình Producer & Đảm bảo: Acks, Thử lại, Tính bất biến, Giao dịch)
 - **Mục đích:** Nắm vững các cài đặt kiểm soát độ bền dữ liệu và đảm bảo phân phối.
@@ -79,6 +80,7 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 - **Mục đích:** Học cách các ứng dụng đọc dữ liệu từ các topic Kafka.
 - **Vấn đề giải quyết:** Tiêu thụ dữ liệu từ Kafka một cách hiệu quả và có khả năng mở rộng.
 - **Khi nào nên sử dụng:** Bất kỳ ứng dụng nào cần xử lý luồng dữ liệu từ Kafka.
+- **Ghi chú thực hành:** Trong dự án này, chúng ta sẽ triển khai một `consumer-service` độc lập để mô phỏng một microservice khác tiêu thụ dữ liệu, thể hiện rõ sự tách rời (decoupling) mà Kafka mang lại.
 
 ### 2.6 Consumer Groups & Offsets (Nhóm Consumer & Offset)
 - **Mục đích:** Hiểu cách nhiều consumer có thể hoạt động cùng nhau để tiêu thụ một topic song song và cách Kafka theo dõi tiến độ của chúng.

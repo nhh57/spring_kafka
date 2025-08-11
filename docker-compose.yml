@@ -9,6 +9,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+
   kafka:
     image: confluentinc/cp-kafka:7.0.1
     hostname: kafka
@@ -20,9 +21,32 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://localhost:9092'
+      KAFKA_LISTENER: 'PLAINTEXT://0.0.0.0:9092'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://10.56.66.52:9092'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'PLAINTEXT:PLAINTEXT'
       KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      # Expose the Kafka UI on port 9080 of the host machine
+      - "9080:8080"
+    depends_on:
+      # Ensures Kafka UI starts only after the Kafka broker is running
+      - kafka
+    environment:
+      # --- Kafka Cluster Configuration ---
+      # Defines the connection to our Kafka cluster.
+      # KAFKA_CLUSTERS_0_NAME: A display name for the cluster in the UI.
+      KAFKA_CLUSTERS_0_NAME: 'local-kafka-cluster'
+      # KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: The address of the Kafka broker.
+      # 'kafka:9092' refers to the 'kafka' service defined above, on its internal Docker network port.
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: 'kafka:9092'
+      # KAFKA_CLUSTERS_0_ZOOKEEPER: The address of the Zookeeper instance.
+      # This is optional but helpful for some features.
+      KAFKA_CLUSTERS_0_ZOOKEEPER: 'zookeeper:2181'

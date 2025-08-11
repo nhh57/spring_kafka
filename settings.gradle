@@ -1,1 +1,4 @@
-rootProject.name = 'spring_kafka'
+rootProject.name = 'kafka-learning-project'
+
+include 'producer-service'
+include 'consumer-service'

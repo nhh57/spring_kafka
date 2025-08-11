@@ -1,0 +1,560 @@
+11/08/2025 15:40:08.991 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+11/08/2025 15:40:09.138 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 15:40:09.306 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 15:40:09.308 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 15:40:09.308 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754901609304
+11/08/2025 15:40:09.310 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 15:40:09.313 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 15:40:09.314 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
+11/08/2025 15:40:09.775 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 15:40:09.797 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 0 with epoch 0
+11/08/2025 15:47:01.921 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 15:47:02.935 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+11/08/2025 15:47:03.123 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 15:47:03.272 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 15:47:03.273 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 15:47:03.273 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902023269
+11/08/2025 15:47:03.275 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 15:47:03.277 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 15:47:03.277 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
+11/08/2025 15:47:03.721 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 15:47:03.722 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1 with epoch 0
+11/08/2025 15:47:34.323 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 15:47:34.325 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 15:47:35.224 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+11/08/2025 15:47:35.380 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 15:47:35.505 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 15:47:35.506 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 15:47:35.506 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902055504
+11/08/2025 15:47:35.508 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 15:47:35.510 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 15:47:35.511 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
+11/08/2025 15:47:35.757 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 15:47:35.758 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 2 with epoch 0
+11/08/2025 15:47:46.691 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 15:47:46.693 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 15:47:47.525 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+11/08/2025 15:47:47.662 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 15:47:47.788 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 15:47:47.789 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 15:47:47.789 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902067786
+11/08/2025 15:47:47.790 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 15:47:47.792 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 15:47:47.792 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
+11/08/2025 15:47:48.016 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 15:47:48.018 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 3 with epoch 0
+11/08/2025 15:47:50.996 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 15:47:50.999 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+11/08/2025 15:47:51.842 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+11/08/2025 15:47:51.980 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+11/08/2025 15:47:52.117 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 15:47:52.121 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 15:47:52.121 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754902072115
+11/08/2025 15:47:52.123 [main] INFO  c.e.k.p.MessageProducerService - MessageProducerService initialized.
+11/08/2025 15:47:52.126 [main] INFO  c.example.kafka.producer.ProducerApp - Producer service started.
+11/08/2025 15:47:52.126 [main] INFO  c.example.kafka.producer.ProducerApp - Enter messages to send to topic 'learning-topic'. Type 'exit' to quit.
+11/08/2025 15:47:52.376 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 15:47:52.378 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 4 with epoch 0
+11/08/2025 15:49:19.283 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=1, value='1' to topic=learning-topic, partition=0, offset=0
+11/08/2025 15:49:27.296 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=hainh, value='hainh' to topic=learning-topic, partition=0, offset=1
+11/08/2025 15:49:44.450 [kafka-producer-network-thread | producer-1] INFO  c.e.k.p.MessageProducerService - Successfully sent message: key=heheheh, value='heheheh' to topic=learning-topic, partition=0, offset=2
+11/08/2025 15:56:52.443 [kafka-producer-network-thread | producer-1] INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+11/08/2025 16:05:47.198 [main] INFO  c.e.k.p.MessageProducerService - Closing MessageProducerService...
+11/08/2025 16:05:49.363 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
+org.apache.kafka.common.config.ConfigException: Invalid value 1 for configuration acks: Expected value to be a string, but it was a java.lang.Integer
+	at org.apache.kafka.common.config.ConfigDef.parseType(ConfigDef.java:684)
+	at org.apache.kafka.common.config.ConfigDef.parseValue(ConfigDef.java:493)
+	at org.apache.kafka.common.config.ConfigDef.parse(ConfigDef.java:486)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:112)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
+	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
+	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
+	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
+11/08/2025 16:05:49.365 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 16:06:05.320 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
+org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
+	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
+	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
+	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
+11/08/2025 16:06:05.322 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 16:06:40.407 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
+org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
+	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
+	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
+	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
+11/08/2025 16:06:40.409 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
+11/08/2025 16:08:06.437 [main] ERROR c.example.kafka.producer.ProducerApp - An error occurred in the producer application
+org.apache.kafka.common.config.ConfigException: Must set acks to all in order to use the idempotent producer. Otherwise we cannot guarantee idempotence.
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessAndValidateIdempotenceConfigs(ProducerConfig.java:532)
+	at org.apache.kafka.clients.producer.ProducerConfig.postProcessParsedConfig(ProducerConfig.java:493)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:113)
+	at org.apache.kafka.common.config.AbstractConfig.<init>(AbstractConfig.java:132)
+	at org.apache.kafka.clients.producer.ProducerConfig.<init>(ProducerConfig.java:592)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:287)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:314)
+	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:299)
+	at com.example.kafka.producer.MessageProducerService.<init>(MessageProducerService.java:39)
+	at com.example.kafka.producer.ProducerApp.main(ProducerApp.java:15)
+11/08/2025 16:08:06.439 [main] INFO  c.example.kafka.producer.ProducerApp - Producer application finished.
