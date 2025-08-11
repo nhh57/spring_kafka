@@ -32,10 +32,9 @@ public class MessageProducerService implements Closeable {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         // --- Basic Producer Configuration ---
         // 'acks=all' ensures the leader waits for all in-sync replicas to acknowledge the message.
-        props.put(ProducerConfig.ACKS_CONFIG,"1");
+        props.put(ProducerConfig.ACKS_CONFIG,"0");
         // 'enable.idempotence=true' prevents duplicate messages from being produced in case of retries.
-        // props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true"); // Commented out for acks=1 testing
-
+        // props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true"); // Commented out for acks=0 testing
         this.producer = new KafkaProducer<>(props);
         log.info("MessageProducerService initialized.");
     }

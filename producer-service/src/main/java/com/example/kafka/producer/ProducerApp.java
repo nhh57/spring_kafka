@@ -10,7 +10,7 @@ public class ProducerApp {
     private static final Logger log = LoggerFactory.getLogger(ProducerApp.class);
 
     public static void main(String[] args) {
-        String topic = "learning-topic-1";
+        String topic = "learning-topic-0";
 
         try (MessageProducerService producerService = new MessageProducerService();
              Scanner scanner = new Scanner(System.in)) {
