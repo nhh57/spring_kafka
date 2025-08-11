@@ -26,7 +26,7 @@ public class MessageProducerService implements Closeable {
     public MessageProducerService() {
         Properties props = new Properties();
         // Connect to the Kafka broker on the host machine
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093");
         // Use StringSerializer for keys and values
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());

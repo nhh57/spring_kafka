@@ -619,3 +619,147 @@
 11/08/2025 16:15:59.908 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=36, key=6, value='6'
 11/08/2025 16:15:59.908 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=37, key=6, value='6'
 11/08/2025 16:23:41.572 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=38, key=6, value='6'
+11/08/2025 16:26:04.117 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-learning-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = learning-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+11/08/2025 16:26:04.409 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.1
+11/08/2025 16:26:04.411 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e3c2b738d253ff5
+11/08/2025 16:26:04.411 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1754904364407
+11/08/2025 16:26:04.414 [Thread-0] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Subscribed to topic(s): learning-topic-0
+11/08/2025 16:26:04.414 [Thread-0] INFO  c.e.k.c.MessageConsumerService - MessageConsumerService started. Subscribed to topic: learning-topic-0
+11/08/2025 16:26:04.685 [Thread-0] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Cluster ID: GYXDoCqESSe61c2_fIuO1g
+11/08/2025 16:26:04.686 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Discovered group coordinator 10.56.66.52:9092 (id: 2147483646 rack: null)
+11/08/2025 16:26:04.688 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] (Re-)joining group
+11/08/2025 16:26:04.704 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Request joining group due to: need to re-join with the given member-id: consumer-learning-group-1-8a33b6d7-831c-4244-9db6-44920cd34dc8
+11/08/2025 16:26:04.704 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+11/08/2025 16:26:04.704 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] (Re-)joining group
+11/08/2025 16:26:07.709 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Successfully joined group with generation Generation{generationId=7, memberId='consumer-learning-group-1-8a33b6d7-831c-4244-9db6-44920cd34dc8', protocol='range'}
+11/08/2025 16:26:07.720 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Finished assignment for group at generation 7: {consumer-learning-group-1-8a33b6d7-831c-4244-9db6-44920cd34dc8=Assignment(partitions=[learning-topic-0-0])}
+11/08/2025 16:26:07.725 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Successfully synced group in generation Generation{generationId=7, memberId='consumer-learning-group-1-8a33b6d7-831c-4244-9db6-44920cd34dc8', protocol='range'}
+11/08/2025 16:26:07.725 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Notifying assignor about the new Assignment(partitions=[learning-topic-0-0])
+11/08/2025 16:26:07.727 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Adding newly assigned partitions: learning-topic-0-0
+11/08/2025 16:26:07.736 [Thread-0] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-learning-group-1, groupId=learning-group] Setting offset for partition learning-topic-0-0 to the committed offset FetchPosition{offset=39, offsetEpoch=Optional[0], currentLeader=LeaderAndEpoch{leader=Optional[10.56.66.52:9092 (id: 1 rack: null)], epoch=0}}
+11/08/2025 16:26:12.236 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=39, key=1, value='1'
+11/08/2025 16:26:13.205 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=40, key=1, value='1'
+11/08/2025 16:26:14.218 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=41, key=1, value='1'
+11/08/2025 16:26:14.218 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=42, key=1, value='1'
+11/08/2025 16:26:14.220 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=43, key=1, value='1'
+11/08/2025 16:26:14.223 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=44, key=1, value='1'
+11/08/2025 16:26:15.233 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=45, key=1, value='1'
+11/08/2025 16:26:15.234 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=46, key=1, value='1'
+11/08/2025 16:26:15.237 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=47, key=1, value='1'
+11/08/2025 16:26:15.237 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=48, key=1, value='1'
+11/08/2025 16:26:15.237 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=49, key=1, value='1'
+11/08/2025 16:26:16.243 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=50, key=1, value='1'
+11/08/2025 16:26:16.243 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=51, key=, value=''
+11/08/2025 16:26:16.246 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=52, key=1, value='1'
+11/08/2025 16:26:16.246 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=53, key=1, value='1'
+11/08/2025 16:26:16.246 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=54, key=1, value='1'
+11/08/2025 16:26:18.265 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=55, key=11, value='11'
+11/08/2025 16:26:27.376 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=56, key=, value=''
+11/08/2025 16:26:28.378 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=57, key=1, value='1'
+11/08/2025 16:26:28.378 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=58, key=1, value='1'
+11/08/2025 16:26:29.391 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=59, key=1, value='1'
+11/08/2025 16:26:30.401 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=60, key=1, value='1'
+11/08/2025 16:26:33.430 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=61, key=1, value='1'
+11/08/2025 16:26:34.447 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=62, key=1, value='1'
+11/08/2025 16:26:35.457 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=63, key=1, value='1'
+11/08/2025 16:26:36.467 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=64, key=1, value='1'
+11/08/2025 16:26:36.467 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=65, key=1, value='1'
+11/08/2025 16:26:37.480 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=66, key=1, value='1'
+11/08/2025 16:26:37.480 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=67, key=1, value='1'
+11/08/2025 16:26:37.484 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=68, key=1, value='1'
+11/08/2025 16:26:38.488 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=69, key=1, value='1'
+11/08/2025 16:26:38.488 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=70, key=1, value='1'
+11/08/2025 16:26:39.501 [Thread-0] INFO  c.e.k.c.MessageConsumerService - Received message: partition=0, offset=71, key=1, value='1'

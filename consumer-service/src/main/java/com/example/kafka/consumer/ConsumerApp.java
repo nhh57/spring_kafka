@@ -8,7 +8,7 @@ public class ConsumerApp {
     private static final Logger log = LoggerFactory.getLogger(ConsumerApp.class);
 
     public static void main(String[] args) {
-        String topic = "learning-topic-0";
+        String topic = "replicated-topic";
         String groupId = "learning-group";
 
         MessageConsumerService consumerService = new MessageConsumerService(topic, groupId);
