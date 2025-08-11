@@ -2,3 +2,4 @@
 /.gradle/
 /producer-service/build/
 /consumer-service/build/
+/logs/

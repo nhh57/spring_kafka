@@ -1,25 +1,22 @@
 # Suggested Commands
 
-This section lists common commands used in this project.
+## Kafka Environment
+*   Start Kafka environment: `docker-compose up -d`
+*   Stop and remove Kafka environment: `docker-compose down`
+*   Access Kafka UI: [http://localhost:9080](http://localhost:9080)
 
-## General Commands
-- `ls`: List directory contents.
-- `pwd`: Print name of current working directory.
-- `cd <directory>`: Change the shell working directory.
-- `grep <pattern> <file>`: Search for patterns in each file.
-- `find <path> -name "<pattern>"`: Search for files in a directory hierarchy.
-- `cat <file>`: Concatenate and print files.
-- `head <file>`: Output the first part of files.
-- `mvn clean install`: Compile, test, and package the project (if using Maven).
-- `docker-compose up -d`: Start Kafka and Zookeeper (or other services) in detached mode.
-- `docker-compose down`: Stop and remove containers, networks, images, and volumes.
+## Build and Run Services
+*   Build all services: `.\gradlew.bat build` (Windows) or `./gradlew build` (Linux/macOS)
+*   Run consumer service: `.\gradlew.bat :consumer-service:run` (Windows) or `./gradlew :consumer-service:run` (Linux/macOS)
+*   Run producer service: `.\gradlew.bat :producer-service:run` (Windows) or `./gradlew :producer-service:run` (Linux/macOS)
 
-## Kafka CLI Tools
-- `kafka-topics.sh --bootstrap-server localhost:9092 --create --topic <topic-name> --partitions <num-partitions> --replication-factor <num-replication>`: Create a Kafka topic.
-- `kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic <topic-name>`: Describe a Kafka topic.
-- `kafka-console-producer.sh --broker-list localhost:9092 --topic <topic-name>`: Start a console producer.
-- `kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic-name> --from-beginning`: Start a console consumer.
+## System Utilities (Linux)
+*   List files and directories: `ls`, `ls -l`, `ls -la`
+*   Change directory: `cd <directory_name>`
+*   Search for patterns in files: `grep <pattern> <filename>`
+*   Find files: `find . -name "<filename_pattern>"`
+*   Version control: `git` commands (e.g., `git status`, `git add`, `git commit`, `git push`)
 
-## Project Specific Commands
-- **To run a Spring Boot application**: Use your IDE's run configuration or `mvn spring-boot:run` (if using Maven).
-- **To run tests**: `mvn test` (if using Maven).
+## Task Completion Commands
+*   Linting/Formatting: Not explicitly defined, but standard Java/Gradle best practices should be followed.
+*   Testing: `.\gradlew.bat test` (Windows) or `./gradlew test` (Linux/macOS)

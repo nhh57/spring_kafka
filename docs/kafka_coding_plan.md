@@ -62,19 +62,64 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ### 3.1 Thực hành Kafka Streams
 *   **Mục tiêu**: Xây dựng ứng dụng xử lý luồng đơn giản.
-*   **Môi trường thiết lập**: Dự án Maven/Gradle với `kafka-streams` dependency.
+*   **Môi trường thiết lập**: Module `kafka-streams-example` trong dự án Gradle.
 *   **Ví dụ code**:
-    *   Tạo `StreamsBuilder` và `KStream` từ một topic.
-    *   Thực hiện các phép biến đổi như `filter`, `map`, `groupByKey`, `count`.
-    *   Ghi kết quả ra một topic mới.
+    *   `kafka-streams-example/src/main/java/com/example/kafka/streams/SimpleStreamProcessor.java`
+    *   `kafka-streams-example/src/test/java/com/example/kafka/streams/SimpleStreamProcessorTest.java` (Unit tests)
+*   **Hướng dẫn chạy**:
+    1.  Đảm bảo môi trường Kafka cục bộ đang chạy (`docker-compose up -d`).
+    2.  Tạo topic đầu vào (`input-topic`) và đầu ra (`output-topic-counts`):
+        ```bash
+        docker-compose exec kafka kafka-topics --create --topic input-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+        docker-compose exec kafka kafka-topics --create --topic output-topic-counts --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+        ```
+    3.  Chạy ứng dụng Kafka Streams:
+        ```bash
+        ./gradlew :kafka-streams-example:run
+        ```
+    4.  Sử dụng console producer để gửi tin nhắn vào `input-topic`:
+        ```bash
+        docker-compose exec kafka kafka-console-producer --topic input-topic --bootstrap-server localhost:9092
+        # Gõ các tin nhắn, ví dụ:
+        # hello world
+        # this is an important message
+        # another important one
+        # regular message
+        ```
+    5.  Sử dụng console consumer để xem kết quả từ `output-topic-counts`:
+        ```bash
+        docker-compose exec kafka kafka-console-consumer --topic output-topic-counts --from-beginning --bootstrap-server localhost:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+        ```
 
 ### 3.2 Thực hành Kafka Connect
 *   **Mục tiêu**: Sử dụng các Kafka Connectors có sẵn để di chuyển dữ liệu.
-*   **Môi trường thiết lập**: Cài đặt Kafka Connect (Standalone/Distributed mode).
+*   **Môi trường thiết lập**: Cài đặt Kafka Connect (xem hướng dẫn tại [`docs/setup_guides/kafka_connect_setup.md`](docs/setup_guides/kafka_connect_setup.md)).
 *   **Ví dụ code/Hướng dẫn**:
-    *   Cấu hình và chạy `FileStreamSourceConnector` để đọc từ file và ghi vào Kafka.
-    *   Cấu hình và chạy `FileStreamSinkConnector` để đọc từ Kafka và ghi vào file.
-    *   Giới thiệu về SMTs (Single Message Transforms).
+    *   **Source Connector (`FileStreamSourceConnector`)**:
+        1.  Tạo file `source.txt` trong thư mục gốc của dự án: [`source.txt`](source.txt)
+        2.  Tạo file cấu hình Connector: [`kafka-connect-examples/configs/file-source-connector.properties`](kafka-connect-examples/configs/file-source-connector.properties)
+        3.  Chạy Kafka Connect (từ thư mục cài đặt Kafka của bạn, ví dụ `/opt/kafka`):
+            ```bash
+            bin/connect-standalone.sh config/connect-standalone.properties /home/hainh/Projects/Java/Study/spring_kafka/kafka-connect-examples/configs/file-source-connector.properties
+            ```
+        4.  Kiểm tra tin nhắn trong `input-topic` bằng console consumer:
+            ```bash
+            docker-compose exec kafka kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092
+            ```
+    *   **Sink Connector (`FileStreamSinkConnector`)**:
+        1.  Tạo file cấu hình Connector: [`kafka-connect-examples/configs/file-sink-connector.properties`](kafka-connect-examples/configs/file-sink-connector.properties)
+        2.  Chạy Kafka Connect (trong một terminal khác):
+            ```bash
+            bin/connect-standalone.sh config/connect-standalone.properties /home/hainh/Projects/Java/Study/spring_kafka/kafka-connect-examples/configs/file-sink-connector.properties
+            ```
+        3.  Kiểm tra nội dung của file `sink.txt` được tạo ra trong thư mục cài đặt Kafka Connect của bạn.
+    *   **Single Message Transforms (SMTs)**:
+        1.  Cập nhật file cấu hình Source Connector: [`kafka-connect-examples/configs/file-source-connector.properties`](kafka-connect-examples/configs/file-source-connector.properties) (đã có SMT `InsertTimestamp`).
+        2.  Chạy lại Source Connector với cấu hình đã cập nhật.
+        3.  Kiểm tra tin nhắn trong `input-topic` bằng console consumer để thấy trường `recordTimestamp` đã được thêm vào tin nhắn.
+            ```bash
+            docker-compose exec kafka kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092 --property print.timestamp=true --property print.key=true --property print.value=true
+            ```
 
 ## Module 4: Advanced Kafka Concepts & Operations - Thực hành
 

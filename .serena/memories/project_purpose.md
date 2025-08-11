@@ -1,3 +1,6 @@
 # Project Purpose
 
-This project serves as an in-depth Kafka teaching plan, aiming to provide a comprehensive understanding of Kafka from foundational concepts to advanced applications. It focuses on both theoretical knowledge and practical implementation, covering aspects like Kafka fundamentals, architecture, APIs (Producer, Consumer, Streams, Connect), security, performance tuning, and real-world best practices. The goal is to help users not only understand 'how' but also 'why' and 'when' to use Kafka in various scenarios.
+This project demonstrates a basic, interactive producer-consumer setup using Apache Kafka. It is structured as a multi-project Gradle build with two distinct microservices:
+
+*   `producer-service`: An interactive console application that sends messages to a Kafka topic.
+*   `consumer-service`: A background service that listens to the topic and prints the messages it receives.

@@ -2,3 +2,4 @@ rootProject.name = 'kafka-learning-project'
 
 include 'producer-service'
 include 'consumer-service'
+include 'kafka-streams-example'
