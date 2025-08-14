@@ -1,24 +1,27 @@
 allprojects {
-    apply plugin: 'java'
-
     group = 'com.example.kafka'
     version = '1.0.0'
 
-    java {
-        sourceCompatibility = '21'
-    }
-
     repositories {
         mavenCentral()
+        maven { url 'https://packages.confluent.io/maven/' }
     }
 }
 
 subprojects {
+    apply plugin: 'java' // Apply java plugin to subprojects
     apply plugin: 'application'
+
+    java { // This block should be inside subprojects where java plugin is applied
+        sourceCompatibility = '21'
+    }
 
     dependencies {
         // Kafka client for producer and consumer
         implementation 'org.apache.kafka:kafka-clients:3.6.1'
+
+        // Confluent Kafka Avro Serializer/Deserializer
+        implementation 'io.confluent:kafka-avro-serializer:7.5.1'
 
         // SLF4J for logging API
         implementation 'org.slf4j:slf4j-api:2.0.9'
@@ -34,5 +37,36 @@ subprojects {
 
     tasks.named('test') {
         useJUnitPlatform()
+    }
+
+    // Custom configuration for Avro tools
+    configurations {
+        avroTools
+    }
+
+    dependencies {
+        avroTools 'org.apache.avro:avro-tools:1.11.1' // Avro tools dependency
+    }
+
+    // Custom task to generate Avro Java sources
+    task generateAvro(type: JavaExec) {
+        description = 'Generates Java sources from Avro schemas'
+        classpath = configurations.avroTools // Use avroTools configuration for classpath
+        mainClass = 'org.apache.avro.tool.Main'
+        args = ['compile', 'schema', "${project.rootDir}/src/main/avro", 'build/generated-main-avro-java']
+        doFirst {
+            file('build/generated-main-avro-java').deleteDir()
+            file('build/generated-main-avro-java').mkdirs()
+        }
+    }
+
+    compileJava.dependsOn generateAvro
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java', 'build/generated-main-avro-java']
+            }
+        }
     }
 }

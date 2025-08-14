@@ -43,15 +43,15 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 1)
 - **Vấn đề 1:** Hiểu nhầm Kafka là Message Queue truyền thống.
-    - **Chi tiết:** [`docs/common_problems/kafka_not_mq.md`](docs/common_problems/kafka_not_mq.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/kafka_not_mq.md`](../.kilocode/rules/kafka/common_problems/kafka_not_mq.md)
 - **Vấn đề 2:** Chọn sai số lượng phân vùng cho Topic.
-    - **Chi tiết:** [`docs/common_problems/partition_count.md`](docs/common_problems/partition_count.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/partition_count.md`](../.kilocode/rules/kafka/common_problems/partition_count.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 1)
 - **Thực hành tốt 1:** Luôn định nghĩa rõ ràng mục đích của từng Topic.
-    - **Chi tiết:** [`docs/best_practices/topic_purpose.md`](docs/best_practices/topic_purpose.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/topic_purpose.md`](../.kilocode/rules/kafka/best_practices/topic_purpose.md)
 - **Điều cần tránh 1:** Sử dụng Topic quá "chung chung" cho nhiều loại dữ liệu.
-    - **Chi tiết:** [`docs/best_practices/avoid_generic_topics.md`](docs/best_practices/avoid_generic_topics.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/avoid_generic_topics.md`](../.kilocode/rules/kafka/best_practices/avoid_generic_topics.md)
 
 ## Module 2: Kafka Architecture & Components Deep Dive (Đi sâu vào Kiến trúc & Thành phần Kafka)
 
@@ -99,15 +99,15 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 2)
 - **Vấn đề 1:** Cấu hình Producer không đúng dẫn đến mất dữ liệu hoặc trùng lặp.
-    - **Chi tiết:** [`docs/common_problems/producer_config_issues.md`](docs/common_problems/producer_config_issues.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/producer_config_issues.md`](../.kilocode/rules/kafka/common_problems/producer_config_issues.md)
 - **Vấn đề 2:** Hiểu sai về Consumer Group và Offset Commit.
-    - **Chi tiết:** [`docs/common_problems/consumer_group_offset.md`](docs/common_problems/consumer_group_offset.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/consumer_group_offset.md`](../.kilocode/rules/kafka/common_problems/consumer_group_offset.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 2)
 - **Thực hành tốt 1:** Luôn sử dụng `acks=all` và `min.insync.replicas` cho dữ liệu quan trọng.
-    - **Chi tiết:** [`docs/best_practices/producer_acks.md`](docs/best_practices/producer_acks.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/producer_acks.md`](../.kilocode/rules/kafka/best_practices/producer_acks.md)
 - **Điều cần tránh 1:** Tắt chế độ tự động commit offset nếu không hiểu rõ.
-    - **Chi tiết:** [`docs/best_practices/avoid_auto_commit.md`](docs/best_practices/avoid_auto_commit.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/avoid_auto_commit.md`](../.kilocode/rules/kafka/best_practices/avoid_auto_commit.md)
 
 ## Module 3: Kafka APIs Deep Dive (Đi sâu vào các API Kafka)
 
@@ -133,15 +133,15 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 3)
 - **Vấn đề 1:** Hiệu suất kém khi sử dụng Kafka Streams (ví dụ: State Store không tối ưu).
-    - **Chi tiết:** [`docs/common_problems/kafka_streams_performance.md`](docs/common_problems/kafka_streams_performance.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/kafka_streams_performance.md`](../.kilocode/rules/kafka/common_problems/kafka_streams_performance.md)
 - **Vấn đề 2:** Xử lý lỗi trong Kafka Connect không hiệu quả.
-    - **Chi tiết:** [`docs/common_problems/kafka_connect_error_handling.md`](docs/common_problems/kafka_connect_error_handling.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/kafka_connect_error_handling.md`](../.kilocode/rules/kafka/common_problems/kafka_connect_error_handling.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 3)
 - **Thực hành tốt 1:** Sử dụng Kafka Streams cho các tác vụ xử lý luồng nhẹ, Kafka Connect cho tích hợp dữ liệu.
-    - **Chi tiết:** [`docs/best_practices/streams_connect_usage.md`](docs/best_practices/streams_connect_usage.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/streams_connect_usage.md`](../.kilocode/rules/kafka/best_practices/streams_connect_usage.md)
 - **Điều cần tránh 1:** Viết Producer/Consumer client thủ công khi có thể sử dụng Kafka Connect.
-    - **Chi tiết:** [`docs/best_practices/avoid_manual_clients.md`](docs/best_practices/avoid_manual_clients.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/avoid_manual_clients.md`](../.kilocode/rules/kafka/best_practices/avoid_manual_clients.md)
 
 ## Module 4: Advanced Kafka Concepts & Operations (Các khái niệm nâng cao & Vận hành Kafka)
 
@@ -177,15 +177,15 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 4)
 - **Vấn đề 1:** Quản lý Schema không hiệu quả dẫn đến lỗi tương thích dữ liệu.
-    - **Chi tiết:** [`docs/common_problems/schema_management.md`](docs/common_problems/schema_management.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/schema_management.md`](../.kilocode/rules/kafka/common_problems/schema_management.md)
 - **Vấn đề 2:** Cấu hình bảo mật không đúng gây ra lỗ hổng.
-    - **Chi tiết:** [`docs/common_problems/security_misconfiguration.md`](docs/common_problems/security_misconfiguration.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/security_misconfiguration.md`](../.kilocode/rules/kafka/common_problems/security_misconfiguration.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 4)
 - **Thực hành tốt 1:** Luôn sử dụng Schema Registry cho dữ liệu có cấu trúc.
-    - **Chi tiết:** [`docs/best_practices/use_schema_registry.md`](docs/best_practices/use_schema_registry.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/use_schema_registry.md`](../.kilocode/rules/kafka/best_practices/use_schema_registry.md)
 - **Điều cần tránh 1:** Bỏ qua việc giám sát và cảnh báo cho cụm Kafka.
-    - **Chi tiết:** [`docs/best_practices/monitor_kafka_cluster.md`](docs/best_practices/monitor_kafka_cluster.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/monitor_kafka_cluster.md`](../.kilocode/rules/kafka/best_practices/monitor_kafka_cluster.md)
 
 ## Module 5: Spring for Apache Kafka (Spring cho Apache Kafka)
 
@@ -226,15 +226,15 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 5)
 - **Vấn đề 1:** Xử lý lỗi không đúng trong `@KafkaListener` dẫn đến tin nhắn bị kẹt.
-    - **Chi tiết:** [`docs/common_problems/spring_kafka_error_handling.md`](docs/common_problems/spring_kafka_error_handling.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/spring_kafka_error_handling.md`](../.kilocode/rules/kafka/common_problems/spring_kafka_error_handling.md)
 - **Vấn đề 2:** Cấu hình `concurrency` không phù hợp trong Spring Kafka.
-    - **Chi tiết:** [`docs/common_problems/spring_kafka_concurrency.md`](docs/common_problems/spring_kafka_concurrency.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/spring_kafka_concurrency.md`](../.kilocode/rules/kafka/common_problems/spring_kafka_concurrency.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 5)
 - **Thực hành tốt 1:** Sử dụng `DeadLetterPublishingRecoverer` cho các tin nhắn lỗi.
-    - **Chi tiết:** [`docs/best_practices/spring_kafka_dlq.md`](docs/best_practices/spring_kafka_dlq.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/spring_kafka_dlq.md`](../.kilocode/rules/kafka/best_practices/spring_kafka_dlq.md)
 - **Điều cần tránh 1:** Bỏ qua việc cấu hình `ConsumerFactory` và `ProducerFactory` chi tiết.
-    - **Chi tiết:** [`docs/best_practices/spring_kafka_factory_config.md`](docs/best_practices/spring_kafka_factory_config.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/spring_kafka_factory_config.md`](../.kilocode/rules/kafka/best_practices/spring_kafka_factory_config.md)
 
 ## Module 6: Real-world Applications & Best Practices (Ứng dụng thực tế & Các phương pháp hay nhất)
 
@@ -270,12 +270,12 @@ Dưới đây là kế hoạch giảng dạy chi tiết mà tôi đề xuất, �
 
 ### Vấn đề thường gặp & Cạm bẫy (Module 6)
 - **Vấn đề 1:** Thiết kế Event Sourcing quá phức tạp.
-    - **Chi tiết:** [`docs/common_problems/event_sourcing_complexity.md`](docs/common_problems/event_sourcing_complexity.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/event_sourcing_complexity.md`](../.kilocode/rules/kafka/common_problems/event_sourcing_complexity.md)
 - **Vấn đề 2:** Bỏ qua việc kiểm thử đầu cuối cho các luồng dữ liệu Kafka.
-    - **Chi tiết:** [`docs/common_problems/e2e_testing_neglect.md`](docs/common_problems/e2e_testing_neglect.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/common_problems/e2e_testing_neglect.md`](../.kilocode/rules/kafka/common_problems/e2e_testing_neglect.md)
 
 ### Các phương pháp hay nhất & Điều cần tránh (Module 6)
 - **Thực hành tốt 1:** Bắt đầu với các kịch bản Event Sourcing đơn giản.
-    - **Chi tiết:** [`docs/best_practices/simple_event_sourcing.md`](docs/best_practices/simple_event_sourcing.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/simple_event_sourcing.md`](../.kilocode/rules/kafka/best_practices/simple_event_sourcing.md)
 - **Điều cần tránh 1:** Triển khai Kafka mà không có chiến lược DevOps rõ ràng.
-    - **Chi tiết:** [`docs/best_practices/no_devops_strategy.md`](docs/best_practices/no_devops_strategy.md)
+    - **Chi tiết:** [`../.kilocode/rules/kafka/best_practices/no_devops_strategy.md`](../.kilocode/rules/kafka/best_practices/no_devops_strategy.md)

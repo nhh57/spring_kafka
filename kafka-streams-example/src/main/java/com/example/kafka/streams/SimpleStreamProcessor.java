@@ -11,11 +11,11 @@ import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.Topology; // Add this line
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
-import java.util.concurrent.CountDownLatch;
 
 public class SimpleStreamProcessor {
 
@@ -23,54 +23,68 @@ public class SimpleStreamProcessor {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "simple-stream-app");
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // Start reading from the beginning of the topic
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "simple-stream-processor-app");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092"); // Assuming Kafka is running on localhost
+        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // Start reading from the beginning if no offset is found
 
-        final StreamsBuilder builder = new StreamsBuilder();
+        SimpleStreamProcessor processor = new SimpleStreamProcessor();
+        Topology topology = processor.buildTopology();
 
-        // 2.4: Tạo KStream từ một topic đầu vào
-        KStream<String, String> sourceStream = builder.stream("input-topic", Consumed.with(Serdes.String(), Serdes.String()));
+        // 2.9: Build and start Kafka Streams application
+        KafkaStreams streams = new KafkaStreams(topology, props);
 
-        // 2.5: Áp dụng phép biến đổi filter(): Giữ lại các tin nhắn có giá trị chứa "important"
+        // Clean up local state on shutdown. ONLY for development/testing.
+        // In production, handle state carefully.
+        streams.cleanUp();
+
+        streams.start();
+
+        // Add shutdown hook to close the Streams application gracefully
+        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+
+        log.info("Kafka Streams application started.");
+    }
+
+    public Topology buildTopology() {
+        StreamsBuilder builder = new StreamsBuilder();
+
+        // 2.4: Create KStream from an input topic
+        KStream<String, String> sourceStream = builder.stream(
+                "input-topic",
+                Consumed.with(Serdes.String(), Serdes.String())
+        );
+
+        // 2.5: Apply filter(): Keep messages whose value contains "important"
         KStream<String, String> filteredStream = sourceStream.filter((key, value) -> {
-            log.info("Filtering - Key: {}, Value: {}", key, value);
+            log.info("Filtering: Key={}, Value={}", key, value);
             return value.contains("important");
         });
 
-        // 2.6: Áp dụng phép biến đổi map(): Chuyển đổi giá trị tin nhắn thành chữ hoa
+        // 2.6: Apply map(): Convert message value to uppercase
         KStream<String, String> mappedStream = filteredStream.mapValues(value -> {
-            log.info("Mapping - Value: {} to {}", value, value.toUpperCase());
+            log.info("Mapping to uppercase: {}", value);
             return value.toUpperCase();
         });
 
-        // 2.7: Áp dụng phép biến đổi groupByKey() và count(): Đếm số lượng tin nhắn theo key
-        KTable<String, Long> countedStream = mappedStream.groupByKey(Grouped.with(Serdes.String(), Serdes.String()))
-                                                    .count(Materialized.as("counts-store"));
+        // 2.7: Apply groupByKey() and count(): Count messages by key
+        KTable<String, Long> countedStream = mappedStream
+                .groupByKey(Grouped.with(Serdes.String(), Serdes.String()))
+                .count(Materialized.as("counts-store")); // State store for counts
 
-        // 2.8: Ghi kết quả KTable (từ count) ra một topic đầu ra
-        countedStream.toStream().to("output-topic-counts", Produced.with(Serdes.String(), Serdes.Long()));
+        // Output the mapped stream for testing filter and map
+        mappedStream.to(
+                "filtered-mapped-output-topic",
+                Produced.with(Serdes.String(), Serdes.String())
+        );
 
-        final KafkaStreams streams = new KafkaStreams(builder.build(), props);
-        final CountDownLatch latch = new CountDownLatch(1);
+        // 2.8: Write KTable (from count) to an output topic
+        countedStream.toStream().to(
+                "output-topic-counts",
+                Produced.with(Serdes.String(), Serdes.Long())
+        );
 
-        // attach shutdown handler to catch control-c
-        Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
-            @Override
-            public void run() {
-                streams.close();
-                latch.countDown();
-            }
-        });
-
-        try {
-            streams.start();
-            latch.await();
-        } catch (Throwable e) {
-            log.error("Error starting Kafka Streams application", e);
-            System.exit(1);
-        }
+        return builder.build();
     }
 }

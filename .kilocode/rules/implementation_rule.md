@@ -44,12 +44,10 @@ Bạn nên kiểm tra và tiếp tục các công việc chưa được đánh d
     *   Nếu bạn gặp phải vấn đề hoặc trở ngại không mong đợi, *dừng lại* và yêu cầu hướng dẫn.
  
 4.  **Cập nhật Danh sách Kiểm tra:**
-    *   *Ngay lập tức* sau khi hoàn thành một nhiệm vụ và xác minh tính chính xác của nó (bao gồm cả test), đánh dấu mục tương ứng trong <task_file>.md là đã hoàn thành. Sử dụng cú pháp sau:
-        ```markdown
-        - [x] Nhiệm vụ 1: Mô tả (Đã hoàn thành)
-        ```
-        Thêm "(Đã hoàn thành)" vào nhiệm vụ.
-    *   *Không* đánh dấu nhiệm vụ là đã hoàn thành cho đến khi bạn tự tin rằng nó đã được triển khai và test đầy đủ theo TDD.
+    *   *Ngay lập tức* sau khi hoàn thành một nhiệm vụ (hoặc một tác vụ con trong checklist) và xác minh tính chính xác của nó (bao gồm cả test), đánh dấu mục tương ứng trong <task_file>.md là đã hoàn thành.
+        *   **Đối với tác vụ chính:** Sử dụng cú pháp `- [x] Nhiệm vụ 1: Mô tả (Đã hoàn thành)`
+        *   **Đối với tác vụ con:** Đảm bảo tất cả các tác vụ con bên trong một tác vụ chính cũng được đánh dấu `- [x] Tác vụ con: Mô tả (Đã hoàn thành)`.
+    *   *Không* đánh dấu nhiệm vụ (hoặc tác vụ con) là đã hoàn thành cho đến khi bạn tự tin rằng nó đã được triển khai và test đầy đủ theo TDD.
  
 5.  **Commit Thay đổi (Prompt):**
     * Sau khi hoàn thành một nhiệm vụ *và* cập nhật danh sách kiểm tra, thông báo rằng nhiệm vụ đã sẵn sàng để commit. Sử dụng prompt như:

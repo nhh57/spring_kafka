@@ -3,7 +3,7 @@ title: Định nghĩa Schema Avro cho thực thể Người dùng
 type: task
 status: planned
 created: 2025-08-12T14:05:01
-updated: 2025-08-12T14:16:02
+updated: 2025-08-14T04:06:26
 id: TASK-KAFKA-M4-S1-001
 priority: high
 memory_types: [procedural, semantic]
@@ -25,12 +25,12 @@ Nhiệm vụ này liên quan đến việc định nghĩa một Schema Avro đơ
 
 ### Thực thể
 
-- [ ] Tạo file `User.avsc` trong `src/main/avro/`.
+- [x] Tạo file `User.avsc` trong `src/main/avro/`.
     - Ghi chú: File này sẽ chứa định nghĩa schema Avro. Thư mục `src/main/avro/` là một quy ước phổ biến để lưu trữ các file schema Avro trong các dự án Java. Vị trí này sẽ được các plugin Maven/Gradle sử dụng để tạo các lớp Java.
 
 ### Cấu hình
 
-- [ ] Định nghĩa schema `User` với các trường:
+- [x] Định nghĩa schema `User` với các trường:
     - `id`: chuỗi (ví dụ: UUID để đảm bảo tính duy nhất)
     - `name`: chuỗi
     - `email`: chuỗi
@@ -40,7 +40,7 @@ Nhiệm vụ này liên quan đến việc định nghĩa một Schema Avro đơ
 
 ### Thực thể
 
-- [ ] User.avsc đã được tạo với schema cơ bản.
+- [x] User.avsc đã được tạo với schema cơ bản.
 
 ## Phụ thuộc
 

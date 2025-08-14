@@ -1,6 +1,6 @@
 # Kế hoạch Giảng dạy Kafka Thực hành (Code)
 
-Đây là kế hoạch giảng dạy code chi tiết, bổ sung cho Kế hoạch Giảng dạy Kafka Chuyên sâu lý thuyết ([`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md)). Mục tiêu là giúp bạn áp dụng các kiến thức lý thuyết vào thực tế thông qua các ví dụ code cụ thể và bài tập thực hành.
+Đây là kế hoạch giảng dạy code chi tiết, bổ sung cho Kế hoạch Giảng dạy Kafka Chuyên sâu lý thuyết ([`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md)). Mục tiêu là giúp bạn áp dụng các kiến thức lý thuyết vào thực tế thông qua các ví dụ code cụ thể và bài tập thực hành.
 
 ## Cấu trúc tổng quan
 
@@ -12,7 +12,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ## Module 1: Kafka Fundamentals - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-1-kafka-fundamentals-nền-tảng-của-kafka)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-1-kafka-fundamentals-nền-tảng-của-kafka)
 
 ### 1.1 Thiết lập môi trường Kafka cục bộ
 *   **Mục tiêu**: Khởi chạy một cụm Kafka đơn giản (hoặc multi-broker) trên máy cục bộ.
@@ -29,7 +29,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ## Module 2: Kafka Architecture & Components Deep Dive - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-2-kafka-architecture--components-deep-dive-đi-sâu-vào-kiến-trúc--thành-phần-kafka)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-2-kafka-architecture--components-deep-dive-đi-sâu-vào-kiến-trúc--thành-phần-kafka)
 
 ### 2.1 Xây dựng `producer-service`
 *   **Mục tiêu**: Xây dựng một microservice độc lập có khả năng gửi tin nhắn đến Kafka, sử dụng Kafka Producer API của Java.
@@ -58,7 +58,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ## Module 3: Kafka APIs Deep Dive - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-3-kafka-apis-deep-dive-đi-sâu-vào-các-api-kafka)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-3-kafka-apis-deep-dive-đi-sâu-vào-các-api-kafka)
 
 ### 3.1 Thực hành Kafka Streams
 *   **Mục tiêu**: Xây dựng ứng dụng xử lý luồng đơn giản.
@@ -70,8 +70,8 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     1.  Đảm bảo môi trường Kafka cục bộ đang chạy (`docker-compose up -d`).
     2.  Tạo topic đầu vào (`input-topic`) và đầu ra (`output-topic-counts`):
         ```bash
-        docker-compose exec kafka kafka-topics --create --topic input-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
-        docker-compose exec kafka kafka-topics --create --topic output-topic-counts --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+        docker-compose exec kafka1 kafka-topics --create --topic input-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+        docker-compose exec kafka1 kafka-topics --create --topic output-topic-counts --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
         ```
     3.  Chạy ứng dụng Kafka Streams:
         ```bash
@@ -79,7 +79,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
         ```
     4.  Sử dụng console producer để gửi tin nhắn vào `input-topic`:
         ```bash
-        docker-compose exec kafka kafka-console-producer --topic input-topic --bootstrap-server localhost:9092
+        docker-compose exec kafka1 kafka-console-producer --topic input-topic --bootstrap-server localhost:9092
         # Gõ các tin nhắn, ví dụ:
         # hello world
         # this is an important message
@@ -88,7 +88,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
         ```
     5.  Sử dụng console consumer để xem kết quả từ `output-topic-counts`:
         ```bash
-        docker-compose exec kafka kafka-console-consumer --topic output-topic-counts --from-beginning --bootstrap-server localhost:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+        docker-compose exec kafka1 kafka-console-consumer --topic output-topic-counts --from-beginning --bootstrap-server localhost:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
         ```
 
 ### 3.2 Thực hành Kafka Connect
@@ -98,32 +98,40 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
     *   **Source Connector (`FileStreamSourceConnector`)**:
         1.  Tạo file `source.txt` trong thư mục gốc của dự án: [`source.txt`](source.txt)
         2.  Tạo file cấu hình Connector: [`kafka-connect-examples/configs/file-source-connector.properties`](kafka-connect-examples/configs/file-source-connector.properties)
-        3.  Chạy Kafka Connect (từ thư mục cài đặt Kafka của bạn, ví dụ `/opt/kafka`):
+        3.  Chạy Kafka Connect (từ thư mục cài đặt Kafka của bạn, ví dụ `/opt/kafka` hoặc `D:\kafka` trên Windows):
             ```bash
-            bin/connect-standalone.sh config/connect-standalone.properties /home/hainh/Projects/Java/Study/spring_kafka/kafka-connect-examples/configs/file-source-connector.properties
+            # Trên Linux/macOS
+            bin/connect-standalone.sh config/connect-standalone.properties /path/to/your/project/kafka-connect-examples/configs/file-source-connector.properties
+
+            # Trên Windows (sử dụng PowerShell hoặc Command Prompt)
+            .\bin\windows\connect-standalone.bat .\config\connect-standalone.properties .\kafka-connect-examples\configs\file-source-connector.properties
             ```
         4.  Kiểm tra tin nhắn trong `input-topic` bằng console consumer:
             ```bash
-            docker-compose exec kafka kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092
+            docker-compose exec kafka1 kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092
             ```
     *   **Sink Connector (`FileStreamSinkConnector`)**:
         1.  Tạo file cấu hình Connector: [`kafka-connect-examples/configs/file-sink-connector.properties`](kafka-connect-examples/configs/file-sink-connector.properties)
         2.  Chạy Kafka Connect (trong một terminal khác):
             ```bash
-            bin/connect-standalone.sh config/connect-standalone.properties /home/hainh/Projects/Java/Study/spring_kafka/kafka-connect-examples/configs/file-sink-connector.properties
+            # Trên Linux/macOS
+            bin/connect-standalone.sh config/connect-standalone.properties /path/to/your/project/kafka-connect-examples/configs/file-sink-connector.properties
+
+            # Trên Windows (sử dụng PowerShell hoặc Command Prompt)
+            .\bin\windows\connect-standalone.bat .\config\connect-standalone.properties .\kafka-connect-examples\configs\file-sink-connector.properties
             ```
-        3.  Kiểm tra nội dung của file `sink.txt` được tạo ra trong thư mục cài đặt Kafka Connect của bạn.
+        3.  Kiểm tra nội dung của file `sink.txt` được tạo ra trong thư mục cài đặt Kafka Connect của bạn (ví dụ: `D:\kafka\sink.txt`).
     *   **Single Message Transforms (SMTs)**:
         1.  Cập nhật file cấu hình Source Connector: [`kafka-connect-examples/configs/file-source-connector.properties`](kafka-connect-examples/configs/file-source-connector.properties) (đã có SMT `InsertTimestamp`).
         2.  Chạy lại Source Connector với cấu hình đã cập nhật.
         3.  Kiểm tra tin nhắn trong `input-topic` bằng console consumer để thấy trường `recordTimestamp` đã được thêm vào tin nhắn.
             ```bash
-            docker-compose exec kafka kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092 --property print.timestamp=true --property print.key=true --property print.value=true
+            docker-compose exec kafka1 kafka-console-consumer --topic input-topic --from-beginning --bootstrap-server localhost:9092 --property print.timestamp=true --property print.key=true --property print.value=true
             ```
 
 ## Module 4: Advanced Kafka Concepts & Operations - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-4-advanced-kafka-concepts--operations-các-khái-niệm-nâng-cao--vận-hành-kafka)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-4-advanced-kafka-concepts--operations-các-khái-niệm-nâng-cao--vận-hành-kafka)
 
 ### 4.1 Thực hành Serialization/Deserialization (Serdes) với Avro
 *   **Mục tiêu**: Sử dụng Avro và Schema Registry để quản lý Schema.
@@ -142,7 +150,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ## Module 5: Spring for Apache Kafka - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-5-spring-for-apache-kafka-spring-cho-apache-kafka)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-5-spring-for-apache-kafka-spring-cho-apache-kafka)
 
 ### 5.1 Thiết lập dự án Spring Boot với Spring Kafka
 *   **Mục tiêu**: Tạo một dự án Spring Boot cơ bản tích hợp Spring Kafka.
@@ -172,7 +180,7 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 
 ## Module 6: Real-world Applications & Best Practices - Thực hành
 
-**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](docs/kafka_learning_plan.md#module-6-real-world-applications--best-practices-ứng-dụng-thực-tế--các-phương-pháp-hay-nhất)
+**Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-6-real-world-applications--best-practices-ứng-dụng-thực-tế--các-phương-pháp-hay-nhất)
 
 ### 6.1 Thực hành Event Sourcing đơn giản
 *   **Mục tiêu**: Xây dựng một ví dụ nhỏ về Event Sourcing.

@@ -3,7 +3,7 @@ title: Triển khai dịch vụ Producer Kafka Avro
 type: task
 status: planned
 created: 2025-08-12T14:05:40
-updated: 2025-08-12T14:16:59
+updated: 2025-08-14T04:39:16
 id: TASK-KAFKA-M4-S1-003
 priority: high
 memory_types: [procedural, semantic]
@@ -26,34 +26,34 @@ Nhiệm vụ này liên quan đến việc triển khai một dịch vụ Kafka 
 
 ### Producer
 
-- [ ] Tạo một lớp Java mới, ví dụ: `src/main/java/com/example/kafka/avro/producer/AvroUserProducer.java`.
+- [x] Tạo một lớp Java mới, ví dụ: `src/main/java/com/example/kafka/avro/producer/AvroUserProducer.java`. (Đã hoàn thành)
     - Ghi chú: Lớp này sẽ chứa logic cốt lõi để tạo tin nhắn Avro.
-- [ ] Khởi tạo `KafkaProducer` với các thuộc tính:
+- [x] Khởi tạo `KafkaProducer` với các thuộc tính: (Đã hoàn thành)
     - `bootstrap.servers`: Địa chỉ các broker Kafka.
     - `key.serializer`: `org.apache.kafka.common.serialization.StringSerializer` (giả sử khóa là chuỗi).
     - `value.serializer`: `io.confluent.kafka.serializers.KafkaAvroSerializer`.
     - `schema.registry.url`: URL của Confluent Schema Registry.
     - Ghi chú: Các thuộc tính này rất quan trọng để bật tuần tự hóa Avro và tích hợp Schema Registry.
-- [ ] Triển khai phương thức `sendUserMessage(User user, String topic)`:
+- [x] Triển khai phương thức `sendUserMessage(User user, String topic)`: (Đã hoàn thành)
     - Tạo một `ProducerRecord` với topic, khóa (ví dụ: `user.getId().toString()`), và đối tượng `User` Avro.
     - Sử dụng `producer.send(record, callback)` để gửi không đồng bộ và xử lý xác nhận.
     - Ghi chú: Gửi không đồng bộ thường được ưu tiên để đạt hiệu suất. Callback có thể được sử dụng để ghi log thành công hoặc xử lý lỗi.
 
 ### Cấu hình
 
-- [ ] Đảm bảo các phụ thuộc `io.confluent:kafka-avro-serializer` và `org.apache.kafka:kafka-clients` có trong file xây dựng của dự án.
+- [x] Đảm bảo các phụ thuộc `io.confluent:kafka-avro-serializer` và `org.apache.kafka:kafka-clients` có trong file xây dựng của dự án. (Đã hoàn thành)
     - Ghi chú: Các thư viện này cung cấp các bộ tuần tự hóa cần thiết và chức năng client Kafka.
 
 ### Xử lý lỗi
 
-- [ ] Triển khai một `Callback` cho `producer.send()` để xử lý việc gửi thành công và các ngoại lệ.
+- [x] Triển khai một `Callback` cho `producer.send()` để xử lý việc gửi thành công và các ngoại lệ. (Đã hoàn thành)
     - Ghi chú: Ghi log siêu dữ liệu khi thành công (topic, phân vùng, offset). Ghi log chi tiết lỗi khi thất bại. Điều này giúp gỡ lỗi và giám sát.
 
 ## Tiến độ
 
 ### Producer
 
-- [ ] Lớp AvroUserProducer đã được tạo.
+- [x] Lớp AvroUserProducer đã được tạo.
 
 ## Phụ thuộc
 

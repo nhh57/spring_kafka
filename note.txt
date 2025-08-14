@@ -3,3 +3,9 @@
 ./gradlew :producer-service:run
 
 kiểm tra số lượng phiên bản trong nhóm người tiêu dùng : docker exec kafka1 kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group learning-group
+
+
+rmdir /s /q gradle
+gradlew.bat :producer-service:build
+gradlew.bat :producer-service:installDist
+java -jar producer-service/build/libs/producer-service.jar
