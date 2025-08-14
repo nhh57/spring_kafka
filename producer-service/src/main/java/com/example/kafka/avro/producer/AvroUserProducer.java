@@ -43,13 +43,13 @@ public class AvroUserProducer {
     }
 
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Cách dùng: AvroUserProducer <bootstrap.servers> <schema.registry.url>");
-            return;
-        }
+//        if (args.length != 2) {
+//            log.info("Cách dùng: AvroUserProducer <bootstrap.servers> <schema.registry.url>");
+//            return;
+//        }
 
-        String bootstrapServers = args[0];
-        String schemaRegistryUrl = args[1];
+        String bootstrapServers = "10.56.66.54:9092,10.56.66.54:9093";
+        String schemaRegistryUrl = "http://10.56.66.54:8081";
         String topic = "users-avro-topic"; // Tên topic
 
         AvroUserProducer producer = new AvroUserProducer(bootstrapServers, schemaRegistryUrl);

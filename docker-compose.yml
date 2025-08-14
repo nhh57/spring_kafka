@@ -69,3 +69,17 @@ services:
       # KAFKA_CLUSTERS_0_ZOOKEEPER: The address of the Zookeeper instance.
       # This is optional but helpful for some features.
       KAFKA_CLUSTERS_0_ZOOKEEPER: 'zookeeper:2181'
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.0.1
+    hostname: schema-registry
+    container_name: schema-registry
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka1
+      - kafka2
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka1:29092,kafka2:29093'
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081

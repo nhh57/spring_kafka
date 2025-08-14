@@ -3,7 +3,7 @@ title: Triển khai dịch vụ Consumer Kafka Avro
 type: task
 status: planned
 created: 2025-08-12T14:06:01
-updated: 2025-08-12T14:17:27
+updated: 2025-08-14T06:57:39
 id: TASK-KAFKA-M4-S1-004
 priority: high
 memory_types: [procedural, semantic]
@@ -26,40 +26,40 @@ Nhiệm vụ này liên quan đến việc triển khai một dịch vụ Kafka 
 
 ### Consumer
 
-- [ ] Tạo một lớp Java mới, ví dụ: `src/main/java/com/example/kafka/avro/consumer/AvroUserConsumer.java`.
+- [x] Tạo một lớp Java mới, ví dụ: `src/main/java/com/example/kafka/avro/consumer/AvroUserConsumer.java`. (Đã hoàn thành)
     - Ghi chú: Lớp này sẽ chứa logic cốt lõi để tiêu thụ tin nhắn Avro.
-- [ ] Khởi tạo `KafkaConsumer` với các thuộc tính:
-    - `bootstrap.servers`: Địa chỉ các broker Kafka.
-    - `group.id`: ID nhóm consumer.
-    - `key.deserializer`: `org.apache.kafka.common.serialization.StringDeserializer` (giả sử khóa là chuỗi).
-    - `value.deserializer`: `io.confluent.kafka.serializers.KafkaAvroDeserializer`.
-    - `schema.registry.url`: URL của Confluent Schema Registry.
-    - `specific.avro.reader`: `true` để bật giải tuần tự hóa bản ghi Avro cụ thể.
-    - `enable.auto.commit`: `false` (để quản lý offset thủ công).
-    - `auto.offset.reset`: `earliest` hoặc `latest` tùy thuộc vào hành vi mong muốn.
+- [x] Khởi tạo `KafkaConsumer` với các thuộc tính: (Đã hoàn thành)
+    - [x] `bootstrap.servers`: Địa chỉ các broker Kafka. (Đã hoàn thành)
+    - [x] `group.id`: ID nhóm consumer. (Đã hoàn thành)
+    - [x] `key.deserializer`: `org.apache.kafka.common.serialization.StringDeserializer` (giả sử khóa là chuỗi). (Đã hoàn thành)
+    - [x] `value.deserializer`: `io.confluent.kafka.serializers.KafkaAvroDeserializer`. (Đã hoàn thành)
+    - [x] `schema.registry.url`: URL của Confluent Schema Registry. (Đã hoàn thành)
+    - [x] `specific.avro.reader`: `true` để bật giải tuần tự hóa bản ghi Avro cụ thể. (Đã hoàn thành)
+    - [x] `enable.auto.commit`: `false` (để quản lý offset thủ công). (Đã hoàn thành)
+    - [x] `auto.offset.reset`: `earliest` hoặc `latest` tùy thuộc vào hành vi mong muốn. (Đã hoàn thành)
     - Ghi chú: Các thuộc tính này rất quan trọng để bật giải tuần tự hóa Avro và tích hợp Schema Registry. `specific.avro.reader` quan trọng để lấy trực tiếp đối tượng Avro Java đã tạo.
-- [ ] Triển khai một phương thức `run()` (hoặc tương tự) liên tục thăm dò tin nhắn:
-    - Gọi `consumer.poll(Duration.ofMillis(100))` để lấy bản ghi.
-    - Lặp qua `ConsumerRecords` và giải tuần tự hóa giá trị của mỗi bản ghi thành đối tượng `User` Avro.
-    - Xử lý đối tượng `User` (ví dụ: in ra console).
-    - Triển khai commit offset thủ công (`consumer.commitSync()` hoặc `consumer.commitAsync()`) sau khi xử lý.
+- [x] Triển khai một phương thức `run()` (hoặc tương tự) liên tục thăm dò tin nhắn: (Đã hoàn thành)
+    - [x] Gọi `consumer.poll(Duration.ofMillis(100))` để lấy bản ghi. (Đã hoàn thành)
+    - [x] Lặp qua `ConsumerRecords` và giải tuần tự hóa giá trị của mỗi bản ghi thành đối tượng `User` Avro. (Đã hoàn thành)
+    - [x] Xử lý đối tượng `User` (ví dụ: in ra console). (Đã hoàn thành)
+    - [x] Triển khai commit offset thủ công (`consumer.commitSync()` hoặc `consumer.commitAsync()`) sau khi xử lý. (Đã hoàn thành)
     - Ghi chú: Thăm dò trong một vòng lặp là tiêu chuẩn cho các consumer Kafka. Commit offset thủ công cung cấp nhiều quyền kiểm soát hơn đối với các đảm bảo xử lý tin nhắn.
 
 ### Cấu hình
 
-- [ ] Đảm bảo các phụ thuộc `io.confluent:kafka-avro-serializer` và `org.apache.kafka:kafka-clients` có trong file xây dựng của dự án.
+- [x] Đảm bảo các phụ thuộc `io.confluent:kafka-avro-serializer` và `org.apache.kafka:kafka-clients` có trong file xây dựng của dự án. (Đã hoàn thành)
     - Ghi chú: Các thư viện này cung cấp các bộ giải tuần tự hóa cần thiết và chức năng client Kafka.
 
 ### Xử lý lỗi
 
-- [ ] Triển khai xử lý lỗi mạnh mẽ cho việc xử lý tin nhắn.
+- [x] Triển khai xử lý lỗi mạnh mẽ cho việc xử lý tin nhắn. (Đã hoàn thành)
     - Ghi chú: Cân nhắc sử dụng các khối try-catch xung quanh logic xử lý tin nhắn. Quyết định chiến lược cho các tin nhắn lỗi (poison pills) (tin nhắn liên tục gây lỗi), ví dụ: ghi log và bỏ qua, hoặc gửi đến Dead Letter Queue (DLQ).
 
 ## Tiến độ
 
 ### Consumer
 
-- [ ] Lớp AvroUserConsumer đã được tạo.
+- [x] Lớp AvroUserConsumer đã được tạo.
 
 ## Phụ thuộc
 

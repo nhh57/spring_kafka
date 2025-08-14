@@ -3,7 +3,7 @@ title: Cấu hình Gradle/Maven để biên dịch Schema Avro thành các lớp
 type: task
 status: planned
 created: 2025-08-12T14:05:21
-updated: 2025-08-12T14:16:31
+updated: 2025-08-14T06:47:29
 id: TASK-KAFKA-M4-S1-002
 priority: high
 memory_types: [procedural]
@@ -28,14 +28,14 @@ Nhiệm vụ này tập trung vào việc tích hợp quá trình biên dịch s
 
 ### Cấu hình
 
-- [ ] Xác định xem dự án sử dụng Gradle hay Maven.
+- [x] Xác định xem dự án sử dụng Gradle hay Maven. (Đã hoàn thành)
     - Ghi chú: Kiểm tra `build.gradle` hoặc `pom.xml` trong thư mục gốc của dự án.
-- [ ] **Nếu là Gradle:**
-    - [ ] Thêm plugin `id 'com.github.davidmc24.gradle-avro'` vào `build.gradle` (hoặc plugin Avro tương đương).
-    - [ ] Cấu hình `avro` source set để bao gồm `src/main/avro`.
-    - [ ] Đảm bảo các nguồn được tạo được thêm vào source set chính.
+- [x] **Nếu là Gradle:** (Đã hoàn thành)
+    - [x] Thêm plugin `id 'com.github.davidmc24.gradle-avro'` vào `build.gradle` (hoặc plugin Avro tương đương). (Đã hoàn thành)
+    - [x] Cấu hình `avro` source set để bao gồm `src/main/avro`. (Đã hoàn thành)
+    - [x] Đảm bảo các nguồn được tạo được thêm vào source set chính. (Đã hoàn thành)
     - Ghi chú: `gradle-avro-plugin` là một lựa chọn phổ biến cho Gradle. Nó đơn giản hóa quá trình tích hợp Avro vào quá trình xây dựng.
-- [ ] **Nếu là Maven:**
+- [ ] **Nếu là Maven:** (Không áp dụng)
     - [ ] Thêm `avro-maven-plugin` vào `pom.xml` trong phần `build`.
     - [ ] Cấu hình plugin để chỉ định `sourceDirectory` (ví dụ: `src/main/avro`) và `outputDirectory` (ví dụ: `target/generated-sources/avro`).
     - [ ] Đảm bảo `build-helper-maven-plugin` được sử dụng để thêm thư mục nguồn được tạo vào các thư mục gốc biên dịch của dự án.
@@ -43,7 +43,7 @@ Nhiệm vụ này tập trung vào việc tích hợp quá trình biên dịch s
 
 ### Xây dựng
 
-- [ ] Chạy lệnh xây dựng (`./gradlew build` hoặc `mvn clean install`) để xác minh rằng các lớp Java được tạo từ `User.avsc` và được biên dịch thành công.
+- [x] Chạy lệnh xây dựng (`./gradlew build` hoặc `mvn clean install`) để xác minh rằng các lớp Java được tạo từ `User.avsc` và được biên dịch thành công. (Đã hoàn thành)
     - Ghi chú: Kiểm tra thư mục đầu ra đã chỉ định để tìm file `User.java` được tạo.
 
 ## Tiến độ
