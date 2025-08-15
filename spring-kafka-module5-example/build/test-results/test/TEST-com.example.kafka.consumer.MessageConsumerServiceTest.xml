@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.kafka.consumer.MessageConsumerServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-08-15T10:15:18" hostname="HO-PTUD-HAINH" time="1.05">
+  <properties/>
+  <testcase name="listen_shouldThrowRuntimeExceptionForErrorMessage()" classname="com.example.kafka.consumer.MessageConsumerServiceTest" time="1.039"/>
+  <testcase name="listen_shouldAcknowledgeMessageOnSuccess()" classname="com.example.kafka.consumer.MessageConsumerServiceTest" time="0.01"/>
+  <system-out><![CDATA[Received Message in group '${spring.kafka.consumer.group-id}': error-message
+Received Message in group '${spring.kafka.consumer.group-id}': test-message
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\hainh\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.18\417558ea01fe9f0e8a94af28b9469d281c4e3984\byte-buddy-agent-1.14.18.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Error processing message: error-message - Simulated error processing message: error-message
+]]></system-err>
+</testsuite>

@@ -1,0 +1,12 @@
+
+spring:
+  kafka:
+    bootstrap-servers: 10.56.66.54:9092 # Replace with actual Kafka broker address
+    consumer:
+      group-id: spring-kafka-group
+      topic: my-topic # Default topic for consumer
+    producer:
+      # Producer properties will be added in later tasks
+      transaction-id-prefix: tx-spring- # Unique ID for transactional producer
+server:
+  port: 1122

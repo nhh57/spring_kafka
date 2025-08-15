@@ -153,30 +153,24 @@ Mỗi module thực hành sẽ tương ứng với một module lý thuyết tro
 **Liên kết lý thuyết**: [`docs/kafka_learning_plan.md`](../docs/kafka_learning_plan.md#module-5-spring-for-apache-kafka-spring-cho-apache-kafka)
 
 ### 5.1 Thiết lập dự án Spring Boot với Spring Kafka
-*   **Mục tiêu**: Tạo một dự án Spring Boot cơ bản tích hợp Spring Kafka.
-*   **Môi trường thiết lập**: Spring Initializr, Maven/Gradle.
-*   **Ví dụ code**:
-    *   `pom.xml` hoặc `build.gradle` với `spring-kafka` dependency.
-    *   `application.yml` hoặc `application.properties` với cấu hình Kafka cơ bản.
+*   **Mục tiêu**: Đã tạo dự án Spring Boot cơ bản tích hợp Spring Kafka.
+*   **Trạng thái**: Hoàn thành.
 
 ### 5.2 Sử dụng KafkaTemplate để gửi tin nhắn
-*   **Mục tiêu**: Gửi tin nhắn đến Kafka bằng `KafkaTemplate`.
-*   **Ví dụ code**:
-    *   Inject `KafkaTemplate`.
-    *   Sử dụng `kafkaTemplate.send()` để gửi tin nhắn.
-    *   Xử lý kết quả gửi (lắng nghe `ListenableFuture`).
+*   **Mục tiêu**: Đã triển khai việc gửi tin nhắn đến Kafka bằng `KafkaTemplate`.
+*   **Trạng thái**: Hoàn thành.
 
 ### 5.3 Sử dụng @KafkaListener để tiêu thụ tin nhắn
-*   **Mục tiêu**: Tiêu thụ tin nhắn bằng annotation `@KafkaListener`.
-*   **Ví dụ code**:
-    *   Tạo một class với phương thức được chú thích `@KafkaListener`.
-    *   Cấu hình `group.id` và `topics`.
+*   **Mục tiêu**: Đã triển khai việc tiêu thụ tin nhắn bằng annotation `@KafkaListener`.
+*   **Trạng thái**: Hoàn thành.
 
 ### 5.4 Xử lý lỗi trong Spring Kafka
-*   **Mục tiêu**: Triển khai các chiến lược xử lý lỗi mạnh mẽ.
-*   **Ví dụ code**:
-    *   Cấu hình `DefaultErrorHandler` với `DeadLetterPublishingRecoverer` và `FixedBackOff`/`ExponentialBackOff`.
-    *   Mô phỏng lỗi trong consumer và quan sát tin nhắn được gửi đến DLT.
+*   **Mục tiêu**: Đã triển khai các chiến lược xử lý lỗi mạnh mẽ.
+*   **Trạng thái**: Hoàn thành.
+
+### 5.5 Triển khai Ví dụ Kafka Transactions trong Spring Kafka
+*   **Mục tiêu**: Đã triển khai ví dụ về Kafka Transactions.
+*   **Trạng thái**: Hoàn thành.
 
 ## Module 6: Real-world Applications & Best Practices - Thực hành
 

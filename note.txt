@@ -9,3 +9,4 @@ rmdir /s /q gradle
 gradlew.bat :producer-service:build
 gradlew.bat :producer-service:installDist
 java -jar producer-service/build/libs/producer-service.jar
+gradlew.bat :spring-kafka-module5-example:bootJar

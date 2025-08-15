@@ -24,11 +24,6 @@ subprojects {
         implementation 'io.confluent:kafka-avro-serializer:7.5.1'
 
         // SLF4J for logging API
-        implementation 'org.slf4j:slf4j-api:2.0.9'
-
-        // Logback for logging implementation
-        implementation 'ch.qos.logback:logback-classic:1.4.11'
-        implementation 'ch.qos.logback:logback-core:1.4.11'
 
         // JUnit for testing
         testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'

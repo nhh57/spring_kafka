@@ -65,14 +65,14 @@ public class AvroUserConsumer implements Runnable {
     }
 
     public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.println("Cách dùng: AvroUserConsumer <bootstrap.servers> <group.id> <schema.registry.url>");
-            return;
-        }
+//        if (args.length != 3) {
+//            System.out.println("Cách dùng: AvroUserConsumer <bootstrap.servers> <group.id> <schema.registry.url>");
+//            return;
+//        }
 
-        String bootstrapServers = args[0];
-        String groupId = args[1];
-        String schemaRegistryUrl = args[2];
+        String bootstrapServers = "10.56.66.54:9092,10.56.66.54:9093";
+        String groupId = "users-avro-topic-group";
+        String schemaRegistryUrl = "http://10.56.66.54:8081";
         String topic = "users-avro-topic"; // Tên topic
 
         AvroUserConsumer consumer = new AvroUserConsumer(bootstrapServers, groupId, schemaRegistryUrl, topic);
